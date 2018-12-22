@@ -13,7 +13,7 @@ flake8:
 	pipenv run flake8 acme
 
 coverage:
-	# pipenv run py.test --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov=requests tests
+	pipenv run py.test -c .coveragerc --verbose tests
 
 publish:
 	pipenv run python setup.py sdist bdist_wheel
