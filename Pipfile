@@ -9,7 +9,6 @@ pylint = ">=2.2.2"
 autopep8 = "*"
 
 [packages]
-acme = {path = ".", editable = true}
 
 [requires]
 python_version = "3.6"

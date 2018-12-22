@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
@@ -9,12 +10,14 @@ from setuptools.command.test import test as TestCommand
 
 here = os.path.abspath(os.path.dirname(__file__))
 
-packages = ['requests']
+packages = ['acme']
+
+requires = [
+]
 
 about = {}
-with open(os.path.join(here, 'acme', '__version__.py'), 'r', 'utf-8') as f:
+with open(os.path.join(here, 'acme', '__version__.py'), 'r') as f:
     exec(f.read(), about)
-
 
 setup(
     name=about['__title__'],
