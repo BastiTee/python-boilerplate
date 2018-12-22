@@ -1,0 +1,15 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = ">=2.8.0"
+pylint = ">=2.2.2"
+autopep8 = "*"
+
+[packages]
+acme = {path = ".", editable = true}
+
+[requires]
+python_version = "3.6"
