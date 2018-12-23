@@ -6,8 +6,8 @@
 :license: Apache 2.0, see LICENSE for more details.
 """
 
-# Set default logging handler to avoid "No handler found" warnings.
-import logging
-from logging import NullHandler
+from .api import *
+from logging import getLogger, NullHandler
 
-logging.getLogger(__name__).addHandler(NullHandler())
+# Set default logging handler to avoid "No handler found" warnings.
+getLogger(__name__).addHandler(NullHandler())
