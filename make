@@ -3,6 +3,7 @@ cd "$( cd "$( dirname "$0" )"; pwd )"
 
 PROJECT_NAME="acme"
 export PIPENV_VERBOSITY=-1  # suppress warning if pipenv is starting inside venv
+export PYTHONPATH=.
 
 function init {
 	pip3 install pipenv --upgrade
@@ -10,7 +11,7 @@ function init {
 }
 
 function run {
-	FLASK_APP=$PROJECT_NAME FLASK_DEBUG=1 pipenv run flask run
+	FLASK_APP=$PROJECT_NAME.api FLASK_DEBUG=1 pipenv run flask run
 }
 
 function shell {
@@ -30,10 +31,22 @@ function coverage {
     pipenv run py.test -c .coveragerc --verbose tests
 }
 
-function publish {
+function build {
     pipenv run python setup.py sdist bdist_wheel
-	# publish somewhere...
-	rm -fr build dist .egg $PROJECT_NAME.egg-info
+}
+
+function clean {
+	rm -fr build dist .egg $PROJECT_NAME.egg-info .pytest_cache
+}
+
+function all {
+    clean
+    init
+    test
+    lint
+    coverage
+    build
+    clean
 }
 
 # -----------------------------------------------------------------------------
