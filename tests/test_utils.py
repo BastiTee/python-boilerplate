@@ -4,7 +4,7 @@ import pytest
 from acme.utils import (add)
 
 
-class Test:
+class TestUtils:
 
     def test_add(self):
         """Ensure that adding yields correct results."""

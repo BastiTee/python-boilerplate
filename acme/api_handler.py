@@ -1,26 +1,25 @@
 # -*- coding: utf-8 -*-
 
-"""TODO
-curl http://localhost:5000 && curl -XPOST "http:/localhost:5000?message=$( date +%s )" && curl http://localhost:5000
-"""
-
-# from rx import Observer
-from .state import AppState
+"""Handle incoming API requests."""
 
 
 class ApiHandler():
     """API backend."""
 
     def __init__(self):
-        self.app_state = AppState()
+        self.message = ''
 
-    def handle(self, http_method, path, request):
+    def handle(self, operation, *args, **kwargs):
         """Dispatch incoming API requests."""
-        print(http_method, ' >>> ', path, ' >>> ', request)
+        if operation is 'GET_MESSAGE':
+            return self.message
+        elif operation is 'POST_MESSAGE':
+            self.message = self.get_value(kwargs, 'message')
+            return self.message
 
-        if http_method is 'GET' and path is '/':
-            return self.app_state.get_message() + '\n'
-        elif http_method is 'POST' and path is '/':
-            message = request.args.get('message')
-            self.app_state.set_message(message)
-            return self.app_state.get_message() + '\n'
+    def get_value(self, kwargs, value):
+        try:
+            value = kwargs[value]
+            return str(value).strip() if value else ''
+        except KeyError:
+            return ''

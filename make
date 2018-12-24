@@ -52,6 +52,11 @@ function dockerrun {
     docker run --rm -it -p $TARGET_PORT:80 --name acme-nginx "$IMAGE_TAG"
 }
 
+function commit {
+    all
+    git commit
+}
+
 function all {
     clean
     init
@@ -66,6 +71,10 @@ function all {
 coms=$( cat $0 | egrep "^function" | awk '{print $2}' | tr "\n" " " )
 if [ -z "$1" ]; then
     echo "Select command: $coms"
-    exit
+    exit 1
+fi
+if [ -z "$( echo $coms | grep $1 )" ]; then
+    echo "Unknown command. options: $coms"
+    exit 1
 fi
 $1
