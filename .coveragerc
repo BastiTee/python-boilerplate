@@ -1,2 +1,2 @@
 [run]
-omit = requests/packages/*
+omit = acme/scripts/*

@@ -1,7 +1,26 @@
 {
     "python.pythonPath": "${workspaceFolder}/.venv",
+    // PEP8 settings (https://www.python.org/dev/peps/pep-0008/)
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.wordWrapColumn": 80,
+    "editor.wordWrap": "wordWrapColumn",
+    // Single newline at end of file
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    // Always format on save
+    "editor.formatOnSave": true,
+    // Linting and code qualiy
     "python.linting.enabled": true,
     "python.linting.lintOnSave": true,
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Args": ["--verbose"]
+    "python.linting.flake8Args": [
+        "--verbose"
+    ],
+    // Unit testing (only one framework can be active)
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.pyTestEnabled": true,
+    "python.unitTest.pyTestArgs": [],
 }
