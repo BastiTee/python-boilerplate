@@ -39,7 +39,7 @@ function build {
 }
 
 function clean {
-	rm -fr build dist .egg $PROJECT_NAME.egg-info .pytest_cache
+	git clean -fdx
 }
 
 function dockerbuild {
