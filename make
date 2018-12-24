@@ -1,8 +1,11 @@
 #!/bin/bash
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
+TARGET_PORT=9690
 PROJECT_NAME="acme"
-export PIPENV_VERBOSITY=-1  # suppress warning if pipenv is starting inside venv
+IMAGE_TAG="$PROJECT_NAME/$PROJECT_NAME:latest"
+
+export PIPENV_VERBOSITY=-1  # suppress warning if pipenv is started inside venv
 export PYTHONPATH=.
 
 function init {
@@ -37,6 +40,15 @@ function build {
 
 function clean {
 	rm -fr build dist .egg $PROJECT_NAME.egg-info .pytest_cache
+}
+
+function dockerbuild {
+    docker build -t "$IMAGE_TAG" . || exit 1
+}
+
+function dockerrun {
+    dockerbuild
+    docker run --rm -it -p $TARGET_PORT:80 --name acme-nginx "$IMAGE_TAG"
 }
 
 function all {
