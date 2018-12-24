@@ -43,6 +43,7 @@ function clean {
 }
 
 function dockerbuild {
+    all
     docker build -t "$IMAGE_TAG" . || exit 1
 }
 
@@ -58,7 +59,6 @@ function all {
     lint
     coverage
     build
-    clean
 }
 
 # -----------------------------------------------------------------------------
