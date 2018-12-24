@@ -9,7 +9,7 @@ class AppState():
         self.message = 'Hello world!'
 
     def set_message(self, message):
-        self.message = message
+        self.message = '' if not message else message
 
     def get_message(self):
         return self.message

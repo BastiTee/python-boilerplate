@@ -11,6 +11,7 @@ flake8 = "*"
 
 [packages]
 flask = "*"
+rx = "*"
 
 [requires]
 python_version = "3.6"

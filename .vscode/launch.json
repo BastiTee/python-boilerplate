@@ -28,7 +28,7 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "acme",
+                "FLASK_APP": "acme.api",
             },
             "args": [
                 "run",
