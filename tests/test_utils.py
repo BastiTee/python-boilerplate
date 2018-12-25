@@ -1,20 +1,22 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from acme.utils import (add)
+from acme.utils import (get_kwarg_value_or_empty)
 
 
 class TestUtils:
 
-    def test_add(self):
-        """Ensure that adding yields correct results."""
-        assert add(1, 2) == 3
-        assert add(2, 1) == 3
-
-    @pytest.mark.parametrize('var1, var2', [
+    @pytest.mark.parametrize('kwarg, key', [
         (None, 1), (1, None), (None, None)
     ])
-    def test_add_None(self, var1, var2):
-        """Ensure that adding None values raises ValueError."""
+    def test_get_kwarg_value_or_empty_no_input(self, kwarg, key):
         with pytest.raises(ValueError):
-            add(var1, var2)
+            get_kwarg_value_or_empty(kwarg, key)
+
+    @pytest.mark.parametrize('kwarg, key', [
+        ({'foo': 'bar'}, 'foo'),
+        ({'foo': '   bar        '}, 'foo')
+    ])
+    def test_get_kwarg_value_or_empty_regular_input(self, kwarg, key):
+        print(kwarg)
+        assert get_kwarg_value_or_empty(kwarg, key) == 'bar'

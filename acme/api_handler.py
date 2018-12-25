@@ -2,6 +2,8 @@
 
 """Handle incoming API requests."""
 
+from .utils import get_kwarg_value_or_empty
+
 
 class ApiHandler():
     """API backend."""
@@ -14,12 +16,5 @@ class ApiHandler():
         if operation is 'GET_MESSAGE':
             return self.message
         elif operation is 'POST_MESSAGE':
-            self.message = self.get_value(kwargs, 'message')
+            self.message = get_kwarg_value_or_empty(kwargs, 'message')
             return self.message
-
-    def get_value(self, kwargs, value):
-        try:
-            value = kwargs[value]
-            return str(value).strip() if value else ''
-        except KeyError:
-            return ''
