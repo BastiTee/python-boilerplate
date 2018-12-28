@@ -1,5 +1,5 @@
 # python3-boilerplate
-> A boilerplate project following Python3 development best-practices
+> A boilerplate project based on Python3 development best-practices
 
 ## Features
 
