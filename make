@@ -9,55 +9,72 @@ export PIPENV_VERBOSITY=-1  # suppress warning if pipenv is started inside venv
 export PYTHONPATH=.
 
 function init {
+    # Initialize virtualenv, i.e., install required packages etc.
 	pip3 install pipenv --upgrade
 	PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --skip-lock
 }
 
-function run {
-	FLASK_APP=$PROJECT_NAME.api FLASK_DEBUG=1 pipenv run flask run
-}
-
 function shell {
+    # Initialize virtualenv and open a new shell using it
     init
     pipenv shell
 }
 
-function test {
-    pipenv run py.test
-}
-
-function lint {
-    pipenv run flake8 $PROJECT_NAME
-}
-
-function coverage {
-    pipenv run py.test -c .coveragerc --verbose tests
-}
-
-function build {
-    pipenv run python setup.py sdist bdist_wheel
-}
-
 function clean {
+    # Clean project base by deleting any non-VC files
 	git clean -fdx
 }
 
+function run {
+    # Run application / flask development server
+	FLASK_APP=$PROJECT_NAME.api FLASK_DEBUG=1 pipenv run \
+    flask run --host 0.0.0.0 --port $TARGET_PORT $@
+}
+
+function test {
+    # Run all tests in default virtualenv
+    pipenv run py.test $@
+}
+
+function testall {
+    # Run all tests against all virtualenvs defined in tox.ini
+    pipenv run detox $@
+}
+
+function coverage {
+    # Run test coverage checks
+    pipenv run py.test -c .coveragerc --verbose tests $@
+}
+function lint {
+    # Run linter / code formatting checks against source code base
+    pipenv run flake8 $PROJECT_NAME $@
+}
+
+function build {
+    # Run setup.py-based build process to package application
+    pipenv run python setup.py sdist bdist_wheel $@
+}
+
 function dockerbuild {
+    # Run full build toolchain and create a docker image for publishing
     all
     docker build -t "$IMAGE_TAG" . || exit 1
 }
 
 function dockerrun {
+    # Run docker build process and run a new container using the latest image
     dockerbuild
     docker run --rm -it -p $TARGET_PORT:80 --name acme-nginx "$IMAGE_TAG"
 }
 
 function commit {
+    # Run full build toolchain before executing a git commit
     all
     git commit
 }
 
 function all {
+    # Full build toolchain
     clean
     init
     test
@@ -77,4 +94,6 @@ if [ -z "$( echo $coms | grep $1 )" ]; then
     echo "Unknown command. options: $coms"
     exit 1
 fi
-$1
+command=$1
+shift
+$command $@

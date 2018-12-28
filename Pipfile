@@ -8,10 +8,11 @@ pytest = "*"
 pylint = "*"
 autopep8 = "*"
 flake8 = "*"
+detox = "*"
+requests = "*"
 
 [packages]
 flask = "*"
-rx = "*"
 
 [requires]
 python_version = "3.6"

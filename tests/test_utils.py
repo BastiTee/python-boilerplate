@@ -18,5 +18,4 @@ class TestUtils:
         ({'foo': '   bar        '}, 'foo')
     ])
     def test_get_kwarg_value_or_empty_regular_input(self, kwarg, key):
-        print(kwarg)
         assert get_kwarg_value_or_empty(kwarg, key) == 'bar'
