@@ -3,6 +3,7 @@
 """Handle incoming API requests."""
 
 from .utils import get_kwarg_value_or_empty
+from enum import Enum
 import logging
 
 
@@ -16,8 +17,15 @@ class ApiHandler():
 
     def handle(self, operation, *args, **kwargs):
         """Dispatch incoming API requests."""
-        if operation is 'GET_MESSAGE':
+        if operation is ApiOperations.MESSAGE_GET:
             return self.message
-        elif operation is 'POST_MESSAGE':
+
+        if operation is ApiOperations.MESSAGE_POST:
             self.message = get_kwarg_value_or_empty(kwargs, 'message')
             return self.message
+
+
+class ApiOperations(Enum):
+
+    MESSAGE_GET = 1
+    MESSAGE_POST = 2

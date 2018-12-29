@@ -8,7 +8,7 @@
 
 import logging
 from flask import Flask
-from .api_handler import ApiHandler
+from .api_handler import ApiHandler, ApiOperations
 from .api_routes import ApiRoutes
 
 logging.basicConfig(
@@ -24,7 +24,7 @@ def create_app():
 
     logger.info('Setting up Flask application...')
     app = Flask(__name__)
-    ApiRoutes(app, ApiHandler())
+    ApiRoutes(app, ApiHandler(), ApiOperations)
 
     logger.info('Server successfully started.')
     return app

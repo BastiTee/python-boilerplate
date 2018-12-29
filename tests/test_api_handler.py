@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from acme.api_handler import ApiHandler
+from acme.api_handler import ApiHandler, ApiOperations
 
 
 class TestApiHandler:
 
     def test_get(self):
         api_handler = ApiHandler()
-        assert api_handler.handle('GET_MESSAGE') == ''
+        assert api_handler.handle(ApiOperations.MESSAGE_GET) == ''
 
     @pytest.mark.parametrize('set_message,expected', [
         ('test-message', 'test-message'),
@@ -17,5 +17,5 @@ class TestApiHandler:
     ])
     def test_post(self, set_message, expected):
         api_handler = ApiHandler()
-        api_handler.handle('POST_MESSAGE', message=set_message)
-        assert api_handler.handle('GET_MESSAGE') == expected
+        api_handler.handle(ApiOperations.MESSAGE_POST, message=set_message)
+        assert api_handler.handle(ApiOperations.MESSAGE_GET) == expected
