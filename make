@@ -27,7 +27,7 @@ function clean {
 
 function run {
     # Run application / flask development server
-	FLASK_APP=$PROJECT_NAME.api FLASK_DEBUG=1 pipenv run \
+	FLASK_APP=$PROJECT_NAME FLASK_DEBUG=1 pipenv run \
     flask run --host 0.0.0.0 --port $TARGET_PORT $@
 }
 
@@ -64,7 +64,7 @@ function publish {
 
 function dockerbuild {
     # Run full build toolchain and create a docker image for publishing
-    all
+    # all
     docker build -t "$IMAGE_TAG" . || exit 1
 }
 

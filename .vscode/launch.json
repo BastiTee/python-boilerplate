@@ -28,12 +28,16 @@
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "acme.api",
+                "FLASK_APP": "acme",
             },
             "args": [
                 "run",
                 "--no-debugger",
-                "--no-reload"
+                "--no-reload",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "9690"
             ],
             "jinja": true
         }

@@ -6,7 +6,25 @@
 :license: Apache 2.0, see LICENSE for more details.
 """
 
-from logging import getLogger, NullHandler
+import logging
+from flask import Flask
+from .api_handler import ApiHandler
+from .api_routes import ApiRoutes
 
-# Set default logging handler to avoid "No handler found" warnings.
-getLogger(__name__).addHandler(NullHandler())
+logging.basicConfig(
+    # See https://docs.python.org/3/library/logging.html#logrecord-attributes
+    format='%(asctime)-15s %(levelname)s %(message)s [%(name)s.%(funcName)s]',
+    level=logging.INFO
+)
+
+
+def create_app():
+    """Flask application factory method."""
+    logger = logging.getLogger(__name__)
+
+    logger.info('Setting up Flask application...')
+    app = Flask(__name__)
+    ApiRoutes(app, ApiHandler())
+
+    logger.info('Server successfully started.')
+    return app
