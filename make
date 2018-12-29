@@ -64,7 +64,7 @@ function publish {
 
 function dockerbuild {
     # Run full build toolchain and create a docker image for publishing
-    # all
+    all
     docker build -t "$IMAGE_TAG" . || exit 1
 }
 
