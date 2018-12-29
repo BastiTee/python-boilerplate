@@ -52,7 +52,14 @@ function lint {
 
 function build {
     # Run setup.py-based build process to package application
-    pipenv run python setup.py sdist bdist_wheel $@
+    rm -fr build dist .egg *.egg-info
+    pipenv run python setup.py bdist_wheel $@
+}
+
+function publish {
+    build
+    sudo -H pip install 'twine>=1.5.0'
+	twine upload dist/*
 }
 
 function dockerbuild {
@@ -75,7 +82,6 @@ function commit {
 
 function all {
     # Full build toolchain
-    clean
     init
     test
     lint
