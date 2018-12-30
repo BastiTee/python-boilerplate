@@ -5,14 +5,28 @@
 from requests import get, post
 from time import time
 
+
+def err(exception):
+    print('\033[91m ! ERROR:', exception, '\033[0m')
+
+
 port = 9690
 endpoint = 'http://localhost:' + str(port)
 
 print('-- GET: Current message')
-print(' > ', get(endpoint).text)
+try:
+    print(' > ', get(endpoint).text)
+except Exception as e:
+    err(e)
 
 print('-- POST: New message ')
-print(' > ', post(endpoint + '?message=message-' + str(int(time()))).text)
+try:
+    print(' > ', post(endpoint + '?message=message-' + str(int(time()))).text)
+except Exception as e:
+    err(e)
 
 print('-- GET: Updated message')
-print(' > ', get(endpoint).text)
+try:
+    print(' > ', get(endpoint).text)
+except Exception as e:
+    err(e)
