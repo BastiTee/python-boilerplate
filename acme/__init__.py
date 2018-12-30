@@ -16,6 +16,8 @@ logging.basicConfig(
     format='%(asctime)-15s %(levelname)s %(message)s [%(name)s.%(funcName)s]',
     level=logging.INFO
 )
+# Disable werkzeug logging. we don't have it in production so don't rely on it
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
 
 def create_app():

@@ -11,8 +11,8 @@ class ApiHandler():
     """API backend."""
 
     def __init__(self):
-        logger = logging.getLogger(__name__)
-        logger.info('Initializing API handler...')
+        self.logger = logging.getLogger(__name__)
+        self.logger.info('Initializing API handler...')
         self.message = ''
 
     def handle(self, operation, *args, **kwargs):
