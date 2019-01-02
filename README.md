@@ -18,6 +18,7 @@
 - Linting (flake8) and code formatting (autopep8) support
 - vscode editor configuration including debugging support, unit test discovery and on-save formatting
 - Dockerized builds and run with nginx/uwsgi
+- Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
 
 ## Resource
 
