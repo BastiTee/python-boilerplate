@@ -1,2 +1,3 @@
-[run]
-omit = acme/scripts/*
+[pytest]
+# filterwarnings =
+#    ignore::DeprecationWarning
