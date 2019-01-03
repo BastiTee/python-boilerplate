@@ -7,6 +7,8 @@ IMAGE_TAG="$PROJECT_NAME/$PROJECT_NAME:latest"
 
 export PIPENV_VERBOSITY=-1  # suppress warning if pipenv is started inside venv
 export PYTHONPATH=.  # include source code in any python subprocess
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 
 function init {
     # Initialize virtualenv, i.e., install required packages etc.
