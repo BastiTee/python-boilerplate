@@ -4,7 +4,7 @@ cd "$( cd "$( dirname "$0" )"; pwd )"
 base_name="my_module"
 base_port=9690
 
-help {
+help() {
     [ $# -ge 1 ] && echo "$1"
     cat << EOF
 
@@ -48,7 +48,7 @@ $base_port >> $target_port
 ---
 EOF
 
-run_rename {
+run_rename() {
     # We have to check for the OS here since sed in-place works
     # slighty different on linux und mac
     if [ "$( uname )" == "Darwin" ]; then
