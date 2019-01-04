@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from acme.utils import (get_kwarg_value_or_empty)
+from my_module.utils import (get_kwarg_value_or_empty)
 
 
 class TestUtils:

@@ -19,7 +19,7 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy application source code
-COPY acme /app
+COPY my_module /app
 COPY docker/uwsgi.ini uwsgi.ini
 
 # Prepare run procedure

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from acme.api_handler import ApiHandler, ApiOperations
+from my_module.api_handler import ApiHandler, ApiOperations
 
 
 class TestApiHandler:

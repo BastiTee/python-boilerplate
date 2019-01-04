@@ -2,33 +2,22 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File (Integrated Terminal)",
+            "name": "Run current file",
             "type": "python",
             "request": "launch",
             "program": "${file}",
+            "env": {
+                "PYTHONPATH": "${workspaceRoot}"
+            },
             "console": "integratedTerminal"
         },
         {
-            "name": "Python: Attach",
-            "type": "python",
-            "request": "attach",
-            "port": 5678,
-            "host": "localhost"
-        },
-        {
-            "name": "Python: Module",
-            "type": "python",
-            "request": "launch",
-            "module": "acme",
-            "console": "integratedTerminal"
-        },
-        {
-            "name": "Python: Flask",
+            "name": "Run flask application",
             "type": "python",
             "request": "launch",
             "module": "flask",
             "env": {
-                "FLASK_APP": "acme",
+                "FLASK_APP": "my_module",
             },
             "args": [
                 "run",

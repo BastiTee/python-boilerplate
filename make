@@ -2,7 +2,7 @@
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
 TARGET_PORT=9690
-PROJECT_NAME="acme"
+PROJECT_NAME="my_module"
 IMAGE_TAG="$PROJECT_NAME/$PROJECT_NAME:latest"
 
 export PIPENV_VERBOSITY=-1  # suppress warning if pipenv is started inside venv
@@ -73,7 +73,7 @@ function dockerbuild {
 function dockerrun {
     # Run docker build process and run a new container using the latest image
     dockerbuild
-    docker run --rm -it -p $TARGET_PORT:80 --name acme-nginx "$IMAGE_TAG"
+    docker run --rm -it -p $TARGET_PORT:80 --name my_module-nginx "$IMAGE_TAG"
 }
 
 function commit {
