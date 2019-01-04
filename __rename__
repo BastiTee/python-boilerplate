@@ -4,10 +4,46 @@ cd "$( cd "$( dirname "$0" )"; pwd )"
 base_name="my_module"
 base_port=9690
 
-target_name="acme"
-target_port=1337
+function help {
+    echo "$1"
+    cat << EOF
 
+Usage:
+        $( basename $0 ) -n NEW_NAME -p NEW_PORT (-d)
+
+Options:
+        -n NEW_NAME      Your desired module name replacing 'my_module'
+        -p NEW_PORT      Your desired flask port replacing 9690
+        -d               Delete this script after renaming
+
+EOF
+    exit 1
+}
+
+while getopts "n:p:d" opt; do
+    case "$opt" in
+    n) target_name=$OPTARG;;
+	p) target_port=$OPTARG;;
+    d) delete_script=1;;
+	*) help "Illegal argument";;
+	esac
+done
+
+[ -z "$target_name" ] && help "Target name unset."
+[ -z "$target_port" ] && help "Target port unset."
+
+# Rename module name
 grep -ilr $base_name --exclude-dir=.git --exclude=__rename__ . |\
 while read file; do
-    echo $file
+    sed -i -e "s/$base_name/$target_name/g" $file
 done
+mv $base_name $target_name
+
+# Rename target port
+grep -ilr $base_port --exclude-dir=.git --exclude=__rename__ . |\
+while read file; do
+    sed -i'' -e 's/$base_port/$target_port/g' $file
+done
+
+# Remove script
+[ ! -z "$delete_script" ] && rm -f $0
