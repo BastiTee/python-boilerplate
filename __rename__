@@ -54,6 +54,7 @@ function run_rename {
     tmpf=$( mktemp )
     sed -e "s/$1/$2/g" $3 > $tmpf
     mv $tmpf $3
+    [ "$( basename $3 )" == "make" ] && chmod a+x $3
 }
 
 # Rename module name
