@@ -70,6 +70,10 @@ publish() {
 
 dockerbuild() {
     # Run full build toolchain and create a docker image for publishing
+    if [ -z "$( command -v docker )" ]; then
+        echo "docker is not installed."
+        exit 1
+    fi
     all && docker build -t "$IMAGE_TAG" . || exit 1
 }
 
