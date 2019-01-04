@@ -51,7 +51,7 @@ EOF
 run_rename() {
     # We have to check for the OS here since sed in-place works
     # slighty different on linux und mac
-    if [ "$( uname )" == "Darwin" ]; then
+    if [ "$( uname )" = "Darwin" ]; then
         sed -i '' -e "s/$1/$2/g" $3
     else
         sed -i'' -e "s/$1/$2/g" $3
