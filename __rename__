@@ -1,0 +1,13 @@
+#!/bin/bash
+cd "$( cd "$( dirname "$0" )"; pwd )"
+
+base_name="my_module"
+base_port=9690
+
+target_name="acme"
+target_port=1337
+
+grep -ilr $base_name --exclude-dir=.git --exclude=__rename__ . |\
+while read file; do
+    echo $file
+done

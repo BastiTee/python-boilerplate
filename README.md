@@ -6,6 +6,12 @@
 
 - Make sure that `python3` and `pip3` is installed and available on the path (on Ubuntu: `sudo apt-get install python3 python3-pip`)
 - On first checkout run `./make init` to initialize the project configuration
+- Refer to [the make script](make) to learn about the various operations available
+
+## Reuse for own projects
+
+- Fork this repository
+- Use the [`__rename__.sh`](__rename__.sh) script to apply your own module name, etc.
 
 ## Features
 
