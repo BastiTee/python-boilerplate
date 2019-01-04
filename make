@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
 TARGET_PORT=9690
@@ -59,36 +59,43 @@ function build {
 }
 
 function publish {
-    build
     sudo -H pip install 'twine>=1.5.0'
-	twine upload dist/*
+    build && twine upload dist/*
 }
 
 function dockerbuild {
     # Run full build toolchain and create a docker image for publishing
-    all
-    docker build -t "$IMAGE_TAG" . || exit 1
+    all && docker build -t "$IMAGE_TAG" . || exit 1
 }
 
 function dockerrun {
     # Run docker build process and run a new container using the latest image
-    dockerbuild
+    dockerbuild && \
     docker run --rm -it -p $TARGET_PORT:80 --name my_module-nginx "$IMAGE_TAG"
+}
+
+function installmint {
+    # Simulate full build chain of project running on a fresh Ubuntu copy
+    cp .gitignore .dockerignore
+    echo ".git" >> .dockerignore
+    docker build -t "python3-boilerplate-mint" -f - . << EOF
+FROM nginx:stable-alpine
+RUN apk update && apk add alpine-sdk linux-headers python3 python3-dev
+COPY . /src/
+WORKDIR /src
+RUN /src/make all
+EOF
+    docker rmi "python3-boilerplate-mint" 2> /dev/null
 }
 
 function commit {
     # Run full build toolchain before executing a git commit
-    all
-    git commit
+    all && git commit
 }
 
 function all {
     # Full build toolchain
-    init
-    test
-    lint
-    coverage
-    build
+    init && test && lint && coverage && build
 }
 
 # -----------------------------------------------------------------------------

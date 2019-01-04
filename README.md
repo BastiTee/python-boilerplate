@@ -4,6 +4,7 @@
 
 ## Setup
 
+- Make sure that `python3` and `pip3` is installed and available on the path (on Ubuntu: `sudo apt-get install python3 python3-pip`)
 - On first checkout run `./make init` to initialize the project configuration
 
 ## Features
@@ -19,6 +20,7 @@
 - [vscode](https://code.visualstudio.com/) editor configuration including debugging support, unit test discovery and on-save formatting
 - [Dockerized builds](https://www.docker.com/) and run with [nginx](https://www.nginx.com/)/uwsgi
 - Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
+- Simulation of installing application to a mint system
 
 ## Further resource
 

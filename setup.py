@@ -37,6 +37,5 @@ setup(
     python_requires=">=3.6",
     install_requires=[],
     # Licensing and copyright
-    license='Apache 2.0',
-    copyright='Copyright 2019 basti.tee',
+    license='Apache 2.0'
 )
