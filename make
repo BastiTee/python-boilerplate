@@ -10,71 +10,72 @@ export PYTHONPATH=.  # include source code in any python subprocess
 export LC_ALL=C.UTF-8
 export LANG=C.UTF-8
 
-function init {
+init() {
     # Initialize virtualenv, i.e., install required packages etc.
 	pip3 install pipenv --upgrade
 	PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --skip-lock
 }
 
-function shell {
+shell() {
     # Initialize virtualenv and open a new shell using it
     init
     pipenv shell
 }
 
-function clean {
+clean() {
     # Clean project base by deleting any non-VC files
 	git clean -fdx
 }
 
-function run {
+run() {
     # Run application / flask development server
 	FLASK_APP=$PROJECT_NAME FLASK_DEBUG=1 pipenv run \
     flask run --host 0.0.0.0 --port $TARGET_PORT $@
 }
 
-function test {
+test() {
     # Run all tests in default virtualenv
     pipenv run py.test $@
 }
 
-function testall {
+testall() {
     # Run all tests against all virtualenvs defined in tox.ini
     pipenv run detox $@
 }
 
-function coverage {
+coverage() {
     # Run test coverage checks
     pipenv run py.test -c .coveragerc --verbose tests $@
 }
-function lint {
+
+lint() {
     # Run linter / code formatting checks against source code base
     pipenv run flake8 $PROJECT_NAME $@
 }
 
-function build {
+build() {
     # Run setup.py-based build process to package application
     rm -fr build dist .egg *.egg-info
     pipenv run python setup.py bdist_wheel $@
 }
 
-function publish {
+publish() {
     sudo -H pip install 'twine>=1.5.0'
     build && twine upload dist/*
 }
 
-function dockerbuild {
+dockerbuild() {
     # Run full build toolchain and create a docker image for publishing
     all && docker build -t "$IMAGE_TAG" . || exit 1
 }
 
-function dockerrun {
+dockerrun() {
     # Run docker build process and run a new container using the latest image
     dockerbuild && \
     docker run --rm -it -p $TARGET_PORT:80 --name my_module-nginx "$IMAGE_TAG"
 }
 
-function installmint {
+installmint() {
     # Simulate full build chain of project running on a fresh Ubuntu copy
     cp .gitignore .dockerignore
     echo ".git" >> .dockerignore
@@ -88,12 +89,12 @@ EOF
     docker rmi "python3-boilerplate-mint" 2> /dev/null
 }
 
-function commit {
+commit() {
     # Run full build toolchain before executing a git commit
     all && git commit
 }
 
-function all {
+all() {
     # Full build toolchain
     init && test && lint && coverage && build
 }
