@@ -57,10 +57,19 @@ function run_rename {
     [ "$( basename $3 )" == "make" ] && chmod a+x $3
 }
 
+if [ -z "$reverse" ]; then
+    # Forward: Clean all untracked files and rename folder
+    ./make clean
+    mv "$base_name" "$target_name"
+else
+    # Reverse: Rename the folder (so it's tracked again) and then wipe...
+    mv "$base_name" "$target_name"
+    ./make clean
+fi
+
 # Rename module name
 grep -ilr $base_name --exclude-dir=.git --exclude=__rename__ . |\
 while read file; do run_rename $base_name $target_name $file; done
-mv "$base_name" "$target_name"
 
 # Rename target port
 grep -ilr $base_port --exclude-dir=.git --exclude=__rename__ . |\
