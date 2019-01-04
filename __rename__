@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
 base_name="my_module"
