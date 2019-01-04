@@ -12,10 +12,10 @@ export LANG=C.UTF-8
 
 init() {
     # Initialize virtualenv, i.e., install required packages etc.
-    if [ -z "$( command -v pip3 )" ]; then
-        echo "Install python and pip first. See README.md for details."
+    if [ -z "$( command -v pip3)" ]; then
+        echo "python3 & pip3 missing. See README.md for details."
         exit 1
-    fi 
+    fi
 	pip3 install pipenv --upgrade
 	PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --skip-lock
 }
