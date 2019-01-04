@@ -101,7 +101,7 @@ all() {
 
 # -----------------------------------------------------------------------------
 
-coms=$( cat $0 | egrep "^function" | awk '{print $2}' | tr "\n" " " )
+coms=$( cat $0 | egrep "\(\) {" |tr "(" " " |awk '{print $1}' |tr "\n" " " )
 if [ -z "$1" ]; then
     echo "Select command: $coms"
     exit 1
