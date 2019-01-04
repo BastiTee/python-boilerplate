@@ -11,7 +11,7 @@
 ## Reuse for own projects
 
 - Fork this repository
-- Use the [`__rename__.sh`](__rename__.sh) script to apply your own module name, etc.
+- Use the [`__rename__`](__rename__) script to apply your own module name, etc.
 
 ## Features
 
