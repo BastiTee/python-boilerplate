@@ -49,12 +49,13 @@ $base_port >> $target_port
 EOF
 
 function run_rename {
-    # We have to use a temp file instead -i option because it doesn't
-    # work both on mac and linux
-    tmpf=$( mktemp )
-    sed -e "s/$1/$2/g" $3 > $tmpf
-    chmod --reference=$3 $tmpf  # copy permission
-    mv $tmpf $3
+    # We have to check for the OS here since sed in-place works
+    # slighty different on linux und mac
+    if [ "$( uname )" == "Darwin" ]; then
+        sed -i'' -e "s/$1/$2/g" $3
+    else
+        sed -i "s/$1/$2/g" $3
+    fi
 }
 
 if [ -z "$reverse" ]; then
