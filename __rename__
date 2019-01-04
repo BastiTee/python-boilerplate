@@ -35,14 +35,14 @@ done
 # Rename module name
 grep -ilr $base_name --exclude-dir=.git --exclude=__rename__ . |\
 while read file; do
-    sed -i -e "s/$base_name/$target_name/g" $file
+    sed -i"" -e "s/$base_name/$target_name/g" $file
 done
 mv $base_name $target_name
 
 # Rename target port
 grep -ilr $base_port --exclude-dir=.git --exclude=__rename__ . |\
 while read file; do
-    sed -i'' -e 's/$base_port/$target_port/g' $file
+    sed -i"" -e 's/$base_port/$target_port/g' $file
 done
 
 # Remove script
