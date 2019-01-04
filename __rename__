@@ -53,8 +53,8 @@ function run_rename {
     # work both on mac and linux
     tmpf=$( mktemp )
     sed -e "s/$1/$2/g" $3 > $tmpf
+    chmod --reference=$3 $tmpf  # copy permission
     mv $tmpf $3
-    [ "$( basename $3 )" == "make" ] && chmod a+x $3
 }
 
 if [ -z "$reverse" ]; then
