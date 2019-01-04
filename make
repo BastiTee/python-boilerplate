@@ -12,7 +12,7 @@ export LANG=C.UTF-8
 
 init() {
     # Initialize virtualenv, i.e., install required packages etc.
-	pip3 install pipenv --upgrade
+	pip3 install pipenv --upgrade || exit 1
 	PIPENV_VENV_IN_PROJECT=1 pipenv install --dev --skip-lock
 }
 
