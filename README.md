@@ -38,3 +38,8 @@
 - <https://www.python.org/dev/peps/pep-0008/>
 - <https://www.kennethreitz.org/essays/why-you-should-use-vs-code-if-youre-a-python-developer>
 - <https://code.visualstudio.com/docs/python/python-tutorial>
+
+## Ideas
+
+- [Optional static typing for Python 2 and 3 (PEP 484)](https://github.com/python/mypy)
+- Reflect current state of Python multi-threading
