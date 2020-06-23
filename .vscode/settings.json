@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": ".venv/bin/python",
+    "python.pythonPath": "${workspaceFolder}/.venv",
     // PEP8 settings (https://www.python.org/dev/peps/pep-0008/)
     "editor.tabSize": 4,
     "editor.insertSpaces": true,

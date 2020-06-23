@@ -20,7 +20,7 @@
 - [vscode](https://code.visualstudio.com/) editor configuration including debugging support, unit test discovery and on-save formatting
 - Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
 
-## Further resource
+## Resources
 
 - <http://packaging.python.org/>
 - <https://packaging.python.org/en/latest/distributing.html>
@@ -31,7 +31,9 @@
 - <https://www.kennethreitz.org/essays/why-you-should-use-vs-code-if-youre-a-python-developer>
 - <https://code.visualstudio.com/docs/python/python-tutorial>
 
-## Ideas
+## Future ideas
 
 - [Optional static typing for Python 2 and 3 (PEP 484)](https://github.com/python/mypy)
 - Reflect current state of Python multi-threading
+- Include isort
+- Make sure tox is working as expected
