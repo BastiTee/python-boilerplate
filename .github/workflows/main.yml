@@ -17,4 +17,4 @@ jobs:
             - name: CI checks
               run: |
                   python3 -m pip install pipenv
-                  make clean build
+                  make all
