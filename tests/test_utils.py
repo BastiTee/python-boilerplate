@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
+"""Basic test suite."""
+
+from my_module.utils import add_two_numbers
 
 import pytest
-from my_module.utils import (get_kwarg_value_or_empty)
 
 
-class TestUtils:
+class TestUtils:  # noqa: D101
 
-    @pytest.mark.parametrize('kwarg, key', [
+    @pytest.mark.parametrize('number_left, number_right', [
         (None, 1), (1, None), (None, None)
     ])
-    def test_get_kwarg_value_or_empty_no_input(self, kwarg, key):
+    def test_add_two_numbers_no_input(self, number_left, number_right):
+        """Basic input validation."""
         with pytest.raises(ValueError):
-            get_kwarg_value_or_empty(kwarg, key)
+            add_two_numbers(number_left, number_right)
 
-    @pytest.mark.parametrize('kwarg, key', [
-        ({'foo': 'bar'}, 'foo'),
-        ({'foo': '   bar        '}, 'foo')
-    ])
-    def test_get_kwarg_value_or_empty_regular_input(self, kwarg, key):
-        assert get_kwarg_value_or_empty(kwarg, key) == 'bar'
+    def test_add_two_numbers_regular_input(self):
+        """Basic asserting test."""
+        assert add_two_numbers(2, 3) == 5

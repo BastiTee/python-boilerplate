@@ -4,15 +4,22 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
-pylint = "*"
-autopep8 = "*"
-flake8 = "*"
-detox = "*"
-requests = "*"
+autopep8 = "*" # Code formatter
+flake8 = "*" # Base-linter module
+flake8-quotes = "*" # flake8-extension to lint bad quoting
+flake8-docstrings = "*" # flake8-ext for strict docstring linting
+flake8-builtins = "*" # flake8-ext to check python builtins used as vars etc.
+flake8-import-order = "*" # flake8-ext to cleanup imports
+flake8-blind-except = "*" # flake8-ext to catch blind exception catches
+flake8-use-fstring = "*" # flake8-ext to enforce f-strings
+pep8-naming = "*" # flake8-ext to enforce pep8 naming conventions
+pytest = "*" # Python base-testing library
+detox = "*" # Distributed tox for multi-python tests
+rope = "*" # Refactoring library
+twine = "*" # Interoperability with pypi.org
 
 [packages]
-flask = "*"
+requests = "*"
 
 [requires]
 # Please check https://github.com/pypa/pipenv/issues/1050 why we don't set

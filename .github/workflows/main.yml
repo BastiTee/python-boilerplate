@@ -1,0 +1,20 @@
+name: CI
+
+on:
+    push:
+        branches:
+            - master
+            - feature/*
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v1
+
+            - name: CI checks
+              run: |
+                  python3 -m pip install pipenv
+                  make all

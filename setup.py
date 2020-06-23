@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""Setup process."""
 
-from setuptools import setup, find_packages
-from os import path
 from io import open
+from os import path
+
+from setuptools import find_packages, setup
 
 with open(path.join(path.abspath(path.dirname(__file__)), 'README.md'),
           encoding='utf-8') as f:
@@ -30,11 +32,12 @@ setup(
         'Programming Language :: Python',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8'
     ],
     # Package configuration
-    packages=find_packages(exclude=("tests",)),
+    packages=find_packages(exclude=('tests',)),
     include_package_data=True,
-    python_requires=">=3.6",
+    python_requires='>= 3.6',
     install_requires=[],
     # Licensing and copyright
     license='Apache 2.0'
