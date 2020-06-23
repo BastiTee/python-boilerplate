@@ -13,7 +13,7 @@ LANG=C.UTF-8
 venv:
 	# Initialize virtualenv, i.e., install required packages etc.
 	pip3 install pipenv --upgrade
-	pipenv install --dev --skip-lock
+	pipenv --three install --dev --skip-lock
 
 shell:
 	# Initialize virtualenv and open a new shell using it
