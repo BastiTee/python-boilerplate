@@ -2,11 +2,10 @@
 """Utility functions."""
 
 
-def get_kwarg_value_or_empty(kwargs, key):
-    if not kwargs or not key:
-        raise ValueError('Input kwargs or key must be set.')
-    try:
-        value = kwargs[key]
-        return str(value).strip() if value else ''
-    except KeyError:
-        return ''
+def add_two_numbers(number_left, number_right):
+    """Add two numbers."""
+    if not number_left:
+        raise ValueError('Input number_left must be set.')
+    if not number_right:
+        raise ValueError('Input number_right must be set.')
+    return number_left + number_right
