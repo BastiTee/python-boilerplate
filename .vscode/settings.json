@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "${workspaceFolder}/.venv",
+    "python.pythonPath": ".venv/bin/python",
     // PEP8 settings (https://www.python.org/dev/peps/pep-0008/)
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
@@ -14,6 +14,7 @@
     // Linting and code qualiy
     "python.linting.enabled": true,
     "python.linting.lintOnSave": true,
+    "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Args": [
         "--verbose"
@@ -21,6 +22,6 @@
     // Unit testing (only one framework can be active)
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pyTestEnabled": true,
-    "python.testing.pyTestArgs": [],
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [],
 }
