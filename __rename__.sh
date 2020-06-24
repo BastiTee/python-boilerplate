@@ -20,5 +20,6 @@ mv -v my_module $1
 find . -type f -exec grep -l my_module {} + |\
 grep -v -e $( basename $0 ) -e ".git" |while read file
 do
-    sed -i.bak "s/my_module/$1/g" $file
+    sed -i.rename-bak "s/my_module/$1/g" $file
 done
+find . -type f -iname "*.rename-bak" -exec rm -f {}
