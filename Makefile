@@ -37,6 +37,7 @@ clean:
 		build \
 		dist \
 		**/.pytest_cache \
+		.pytest_cache \
 		**/__pycache__
 
 test:
