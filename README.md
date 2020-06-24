@@ -2,6 +2,12 @@
 
 > A best-practices template project for Python3 modules
 
+---
+
+**Disclaimer**: If you see this on [pypi.org](https://pypi.org/project/python3-boilerplate/) please note that the project is only published here for testing purposes. Please visit [GitHub](https://github.com/BastiTee/python3-boilerplate) for the related template project. 
+
+---
+
 ## Setup
 
 - Make sure that `python3` and `pip3` is installed and available on the path (on Ubuntu: `sudo apt-get install python3 python3-pip`)
