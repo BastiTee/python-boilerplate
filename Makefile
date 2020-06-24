@@ -63,6 +63,10 @@ publish: build
 	# Release
 	pipenv run twine upload dist/*
 
+run:
+	# Execute my_module directly
+	pipenv run python -m my_module
+
 all: clean venv build
 
 .PHONY: all
