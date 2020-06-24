@@ -13,10 +13,10 @@ export PIPENV_VENV_IN_PROJECT=1
 # Ignore existing venvs (required for travis)
 export PIPENV_IGNORE_VIRTUALENVS=1
 # Setup python path
-PYTHONPATH=.
+export PYTHONPATH=.
 # Make sure we are running with an explicit encoding
-LC_ALL=C.UTF-8
-LANG=C.UTF-8
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
 # Current package version
 VERSION = $(shell python3 setup.py --version)
 
