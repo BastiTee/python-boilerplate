@@ -13,6 +13,7 @@
 - Make sure that `python3` and `pip3` is installed and available on the path (on Ubuntu: `sudo apt-get install python3 python3-pip`)
 - On first checkout run `make venv` to initialize the project configuration
 - Refer to [the Makefile](Makefile) to learn about the various operations available
+- To rename the project you can use [the provided script](__rename__.sh)
 
 ## Features
 
