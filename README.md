@@ -29,6 +29,26 @@
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
 - [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration
 
+## How to use in existing project
+
+To use it in an existing project you can merge the remote changes to your project.
+
+* Add remote to access the template project
+
+```shell
+git remote add py3template git@github.com:BastiTee/python3-boilerplate.git
+git pull py3template master --allow-unrelated-histories
+```
+
+* Solve all merge conflicts and commit. Most likely there will be a lot
+* Do whatever is necessary to remove the boilerplate you don't need, e.g.
+
+```shell
+rm -rf my_module tests/test_utils.py __rename__.sh
+```
+
+* Commit your changes and push to your project
+
 ## Resources
 
 - <http://packaging.python.org/>
