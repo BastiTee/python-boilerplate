@@ -1,3 +1,11 @@
+# Required executables
+ifeq (, $(shell which python3))
+ $(error "No python3 on PATH.")
+endif
+ifeq (, $(shell which pipenv))
+ $(error "No pipenv on PATH.")
+endif
+
 # Suppress warning if pipenv is started inside .venv
 export PIPENV_VERBOSITY=1
 # Use relative .venv folder instead of home-folder based
@@ -21,8 +29,15 @@ shell:
 
 clean:
 	# Clean project base
-	rm -rfv .venv .pytest_cache .tox build dist .egg *.egg-info
-	find . -type d -iname "__pycache__" | xargs rm -rf
+	rm -rfv \
+		.venv \
+		.tox \
+		.egg \
+		*.egg-info \
+		build \
+		dist \
+		**/.pytest_cache \
+		**/__pycache__
 
 test:
 	# Run all tests in default virtualenv
@@ -30,7 +45,7 @@ test:
 
 testall:
 	# Run all tests against all virtualenvs defined in tox.ini
-	pipenv run detox tests
+	pipenv run tox tests
 
 coverage:
 	# Run test coverage checks
@@ -49,3 +64,5 @@ publish: build
 	pipenv run twine upload dist/*
 
 all: clean venv build
+
+.PHONY: all

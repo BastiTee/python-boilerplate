@@ -14,7 +14,7 @@ flake8-blind-except = "*" # flake8-ext to catch blind exception catches
 flake8-use-fstring = "*" # flake8-ext to enforce f-strings
 pep8-naming = "*" # flake8-ext to enforce pep8 naming conventions
 pytest = "*" # Python base-testing library
-detox = "*" # Distributed tox for multi-python tests
+tox = "*" # Automated and standardized testing in Python
 rope = "*" # Refactoring library
 twine = "*" # Interoperability with pypi.org
 
