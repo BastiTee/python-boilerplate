@@ -17,6 +17,8 @@ PYTHONPATH=.
 # Make sure we are running with an explicit encoding
 LC_ALL=C.UTF-8
 LANG=C.UTF-8
+# Current package version
+VERSION = $(shell python3 setup.py --version)
 
 all: clean venv build
 
@@ -61,9 +63,11 @@ build: test coverage lint
 	# Run setup.py-based build process to package application
 	pipenv run python setup.py bdist_wheel
 
-publish: build
+publish: all
 	# Release
 	pipenv run twine upload dist/*
+	git tag -a $(VERSION) -m "Version $(VERSION)"
+	git push --tags
 
 run:
 	# Execute my_module directly
