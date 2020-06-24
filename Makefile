@@ -49,11 +49,11 @@ test:
 
 testall:
 	# Run all tests against all virtualenvs defined in tox.ini
-	pipenv run tox tests
+	pipenv run tox -c setup.cfg tests
 
 coverage:
 	# Run test coverage checks
-	pipenv run py.test -c .coveragerc --verbose tests
+	pipenv run py.test --verbose tests
 
 lint:
 	# Run code formatting checks against source code base
