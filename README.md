@@ -19,7 +19,7 @@
 
 - Basic project/module organization according to <https://packaging.python.org>
 - [Makefile](Makefile) management script
-- [pipenv](https://github.com/pypa/pipenv) & virtual environments
+- [pipenv](https://github.com/pypa/pipenv) and virtual environments
 - [distutils](https://docs.python.org/3/library/distutils.html)-based installer script
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
 - Multicore/-interpreter testing with [tox](https://tox.readthedocs.io/en/latest/)
@@ -42,7 +42,10 @@
 
 ## Future ideas and todos
 
-- [ ] `.PHONY` doesn't really work yet. Seems like `make venv` is exiting with 1
-- [ ] Optional static typing for Python 2 and 3 (PEP 484) <https://github.com/python/mypy>
-- [ ] Reflect current state of Python multi-threading
-- [ ] Make sure tox is working as expected for supported Python versions
+- Optional static typing for Python 2 and 3 (PEP 484) <https://github.com/python/mypy>
+- Reflect current state of Python multi-threading
+- Make sure tox is working as expected for supported Python versions
+
+## Licensing
+
+This project is licensed under [Apache License 2.0](LICENSE.txt).

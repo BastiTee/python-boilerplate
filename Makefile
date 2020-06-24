@@ -18,10 +18,11 @@ PYTHONPATH=.
 LC_ALL=C.UTF-8
 LANG=C.UTF-8
 
-venv:
+all: clean venv build
+
+venv: clean
 	# Initialize virtualenv, i.e., install required packages etc.
-	pip3 install pipenv --upgrade
-	pipenv --three install --dev --skip-lock
+	pipenv --three install --dev
 
 shell:
 	# Initialize virtualenv and open a new shell using it
@@ -67,7 +68,3 @@ publish: build
 run:
 	# Execute my_module directly
 	pipenv run python -m my_module
-
-all: clean venv build
-
-.PHONY: all
