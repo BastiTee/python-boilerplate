@@ -22,4 +22,4 @@ grep -v -e $( basename $0 ) -e ".git" |while read file
 do
     sed -i.rename-bak "s/my_module/$1/g" $file
 done
-find . -type f -iname "*.rename-bak" -exec rm -f {} ;
+find . -type f -iname "*.rename-bak" -exec rm -f {} \;
