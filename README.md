@@ -4,7 +4,7 @@
 
 ---
 
-**Disclaimer**: If you see this on [pypi.org](https://pypi.org/project/python3-boilerplate/) please note that the project is only published here for testing purposes. Please visit [GitHub](https://github.com/BastiTee/python3-boilerplate) for the related template project. 
+**Disclaimer**: If you see this on [pypi.org](https://pypi.org/project/python3-boilerplate/) please note that the project is only published here for testing purposes. Please visit [GitHub](https://github.com/BastiTee/python3-boilerplate) for the related template project.
 
 ---
 
@@ -17,15 +17,16 @@
 ## Features
 
 - Basic project/module organization according to <https://packaging.python.org>
-- Makefile management script
+- [Makefile](Makefile) management script
 - [pipenv](https://github.com/pypa/pipenv) & virtual environments
 - [distutils](https://docs.python.org/3/library/distutils.html)-based installer script
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
 - Multicore/-interpreter testing with [tox](https://tox.readthedocs.io/en/latest/)
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
+- [isort](https://pypi.org/project/isort/) support for automated import sorting
 - Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
-- [vscode](https://code.visualstudio.com/) editor configuration including debugging support, unit test discovery and on-save formatting
-- Github actions continuous integration
+- [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
+- [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration
 
 ## Resources
 
@@ -40,8 +41,7 @@
 
 ## Future ideas and todos
 
-- [ ] TODO Doesn't really work yet. Seems like venv is exiting with 1
-- [ ] [Optional static typing for Python 2 and 3 (PEP 484)](https://github.com/python/mypy)
+- [ ] `.PHONY` doesn't really work yet. Seems like `make venv` is exiting with 1
+- [ ] Optional static typing for Python 2 and 3 (PEP 484) <https://github.com/python/mypy>
 - [ ] Reflect current state of Python multi-threading
-- [ ] Include isort
-- [ ] Make sure tox is working as expected
+- [ ] Make sure tox is working as expected for supported Python versions

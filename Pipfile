@@ -13,6 +13,7 @@ flake8-import-order = "*" # flake8-ext to cleanup imports
 flake8-blind-except = "*" # flake8-ext to catch blind exception catches
 flake8-use-fstring = "*" # flake8-ext to enforce f-strings
 pep8-naming = "*" # flake8-ext to enforce pep8 naming conventions
+isort = "*" # Automated import sorting
 pytest = "*" # Python base-testing library
 tox = "*" # Automated and standardized testing in Python
 rope = "*" # Refactoring library
