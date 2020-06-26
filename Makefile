@@ -49,11 +49,15 @@ coverage:
 	@echo Run test coverage checks
 	pipenv run py.test --verbose tests
 
+isort:
+	@echo Check for incorrectly sorted imports
+	pipenv run isort --check-only
+
 lint:
 	@echo Run code formatting checks against source code base
 	pipenv run flake8 my_module tests
 
-build: test coverage lint
+build: test coverage isort lint
 	@echo Run setup.py-based build process to package application
 	pipenv run python setup.py bdist_wheel
 
