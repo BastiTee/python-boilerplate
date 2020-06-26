@@ -23,52 +23,46 @@ VERSION = $(shell python3 setup.py --version)
 all: clean venv build
 
 venv: clean
-	# Initialize virtualenv, i.e., install required packages etc.
+	@echo Initialize virtualenv, i.e., install required packages etc.
 	pipenv --three install --dev
 
 shell:
-	# Initialize virtualenv and open a new shell using it
+	@echo Initialize virtualenv and open a new shell using it
 	pipenv shell
 
 clean:
-	# Clean project base
-	rm -rfv \
-		.venv \
-		.tox \
-		.egg \
-		*.egg-info \
-		build \
-		dist \
-		**/.pytest_cache \
-		.pytest_cache \
-		**/__pycache__
+	@echo Clean project base
+	rm -rfv .venv .tox .egg build dist src
+	find . -type d -name ".ropeproject" -exec rm -rf "{}" +;
+	find . -type d -name ".pytest_cache" -exec rm -rf "{}" +;
+	find . -type d -name "__pycache__" -exec rm -rf "{}" +;
 
 test:
-	# Run all tests in default virtualenv
+	@echo Run all tests in default virtualenv
 	pipenv run py.test tests
 
 testall:
-	# Run all tests against all virtualenvs defined in tox.ini
+	@echo Run all tests against all virtualenvs defined in tox.ini
 	pipenv run tox -c setup.cfg tests
 
 coverage:
-	# Run test coverage checks
+	@echo Run test coverage checks
 	pipenv run py.test --verbose tests
 
 lint:
-	# Run code formatting checks against source code base
+	@echo Run code formatting checks against source code base
 	pipenv run flake8 my_module tests
 
 build: test coverage lint
-	# Run setup.py-based build process to package application
+	@echo Run setup.py-based build process to package application
 	pipenv run python setup.py bdist_wheel
 
 publish: all
-	# Release
+	@echo Release to pypi.org and create git tag
 	pipenv run twine upload dist/*
 	git tag -a $(VERSION) -m "Version $(VERSION)"
 	git push --tags
 
 run:
-	# Execute my_module directly
+	@echo Execute my_module directly
 	pipenv run python -m my_module
