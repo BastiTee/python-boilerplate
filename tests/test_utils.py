@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Basic test suite.
 
-There are some 'noqa: F401' in this file to just test the isort import sorting.
+There are some 'noqa: F401' in this file to just test the isort import sorting
+along with the code formatter.
 """
 
 import __future__  # noqa: F401
@@ -10,10 +11,12 @@ import json  # noqa: F401
 from os import path  # noqa: F401
 from re import IGNORECASE, sub  # noqa: F401
 
+import click  # noqa: F401
 import my_module  # noqa: F401
 from my_module.utils import add_two_numbers
 
 import pytest
+import requests  # noqa: F401
 
 
 class TestUtils:  # noqa: D101
