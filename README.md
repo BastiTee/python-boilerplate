@@ -62,9 +62,10 @@ rm -rf my_module tests/test_utils.py __rename__.sh
 
 ## Future ideas and todos
 
-- Optional static typing for Python 2 and 3 (PEP 484) <https://github.com/python/mypy>
-- Reflect current state of Python multi-threading
-- Make sure tox is working as expected for supported Python versions
+- Optional static type hints ([PEP 484](https://www.python.org/dev/peps/pep-0484/)) with [mypy](https://github.com/python/mypy)
+- Make sure [tox](https://tox.readthedocs.io/) is working as expected for supported Python versions
+- Introduce [black](https://github.com/psf/black) in favour of other linters
+- Introduce [pyproject.toml](https://www.python.org/dev/peps/pep-0518/) along with bleeding edge build tools like [flit](https://flit.readthedocs.io/en/latest/rationale.html) or [poetry](https://python-poetry.org/)
 
 ## Licensing
 
