@@ -20,7 +20,7 @@ setup(
     author_email='basti.tee@posteo.de',
     url='https://github.com/BastiTee/python3-boilerplate',
     # Detailled description
-    description='Python3 boilerplate module.',
+    description='A best-practices template project for Python3 modules.',
     long_description=long_description,
     long_description_content_type='text/markdown',
     keywords='sample setuptools development',
