@@ -17,6 +17,7 @@ pytest = "*" # Python base-testing library
 tox = "*" # Automated and standardized testing in Python
 rope = "*" # Refactoring library
 twine = "*" # Interoperability with pypi.org
+my_module = {path = ".", editable = true}
 
 [packages]
 requests = "*"
