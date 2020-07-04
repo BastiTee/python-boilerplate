@@ -51,7 +51,7 @@ coverage:
 
 isort:
 	@echo Check for incorrectly sorted imports
-	pipenv run isort --check-only
+	pipenv run isort --check-only .
 
 lint:
 	@echo Run code formatting checks against source code base
