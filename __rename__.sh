@@ -16,10 +16,13 @@ EOF
 
 if [ -z "$1" ]; then show_help; exit 1; fi
 
-mv -v my_module $1
+make clean
+rm -rf "$1"
+mv -v my_module "$1"
 find . -type f -exec grep -l my_module {} + |\
 grep -v -e $( basename $0 ) -e ".git" |while read file
 do
+    echo "- RENAME $file"
     sed -i.rename-bak "s/my_module/$1/g" $file
 done
 find . -type f -iname "*.rename-bak" -exec rm -f {} \;
