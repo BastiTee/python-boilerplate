@@ -1,6 +1,11 @@
 {
     "python.pythonPath": ".venv/bin/python",
     // PEP8 settings (https://www.python.org/dev/peps/pep-0008/)
+    "python.analysis.extraPaths": [
+        "my_module",
+        "tests",
+        ".venv/bin/python"
+    ],
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.wordWrapColumn": 80,
