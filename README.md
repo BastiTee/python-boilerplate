@@ -2,11 +2,11 @@
 
 > A best-practices template project for Python3 modules
 
----
+--------------------------------------------------------------------------------
 
 **Disclaimer**: If you see this on [pypi.org](https://pypi.org/project/python3-boilerplate/) please note that the project is only published here for testing purposes. Please visit [GitHub](https://github.com/BastiTee/python3-boilerplate) for the related template project.
 
----
+--------------------------------------------------------------------------------
 
 ## Setup
 
@@ -18,13 +18,14 @@
 ## Features
 
 - Basic project/module organization according to <https://packaging.python.org>
-- [Makefile](Makefile) management script
+- `Makefile` management script
 - [pipenv](https://github.com/pypa/pipenv) and virtual environments
 - [distutils](https://docs.python.org/3/library/distutils.html)-based installer script
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
 - Multicore/-interpreter testing with [tox](https://tox.readthedocs.io/en/latest/)
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
 - [isort](https://pypi.org/project/isort/) support for automated import sorting
+- [mpyp](https://pypi.org/project/mypy/) support for type checking
 - Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
 - [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration
