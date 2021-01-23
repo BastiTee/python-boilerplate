@@ -11,11 +11,11 @@ import json  # noqa: F401
 from os import path  # noqa: F401
 from re import IGNORECASE, sub  # noqa: F401
 
-import my_module  # noqa: F401
-from my_module.utils import add_two_numbers
-
 import pytest
 import requests  # noqa: F401
+
+import my_module  # noqa: F401
+from my_module.utils import add_two_numbers
 
 
 class TestUtils:  # noqa: D101
@@ -23,11 +23,15 @@ class TestUtils:  # noqa: D101
     @pytest.mark.parametrize('number_left, number_right', [
         (None, 1), (1, None), (None, None)
     ])
-    def test_add_two_numbers_no_input(self, number_left, number_right):
+    def test_add_two_numbers_no_input(
+            self,
+            number_left: int,
+            number_right: int
+    ) -> None:
         """Basic input validation."""
         with pytest.raises(ValueError):
             add_two_numbers(number_left, number_right)
 
-    def test_add_two_numbers_regular_input(self):
+    def test_add_two_numbers_regular_input(self) -> None:
         """Basic asserting test."""
         assert add_two_numbers(2, 3) == 5

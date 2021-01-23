@@ -11,12 +11,15 @@ flake8-docstrings = "*" # flake8-ext for strict docstring linting
 flake8-builtins = "*" # flake8-ext to check python builtins used as vars etc.
 flake8-blind-except = "*" # flake8-ext to catch blind exception catches
 flake8-use-fstring = "*" # flake8-ext to enforce f-strings
+flake8-isort = "*" # flake8-ext to show isort issues
 pep8-naming = "*" # flake8-ext to enforce pep8 naming conventions
 isort = "*" # Automated import sorting
 pytest = "*" # Python base-testing library
 tox = "*" # Automated and standardized testing in Python
 rope = "*" # Refactoring library
 twine = "*" # Interoperability with pypi.org
+mypy = "*" # Optional static type checker
+typing_extensions = "*" # Typing extensions for mypy
 my_module = {path = ".", editable = true}
 
 [packages]

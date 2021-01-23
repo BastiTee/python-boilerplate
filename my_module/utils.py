@@ -2,7 +2,10 @@
 """Utility functions."""
 
 
-def add_two_numbers(number_left, number_right):
+def add_two_numbers(
+    number_left: int = None,
+    number_right: int = None,
+) -> int:
     """Add two numbers."""
     if not number_left:
         raise ValueError('Input number_left must be set.')

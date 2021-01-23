@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "ms-python.python",
-        "wayou.vscode-todo-highlight"
-    ]
+        "ms-python.vscode-pylance"
+    ],
+    "unwantedRecommendations": []
 }

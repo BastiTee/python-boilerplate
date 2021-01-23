@@ -7,18 +7,19 @@ ifeq (, $(shell which pipenv))
 endif
 
 # Suppress warning if pipenv is started inside .venv
-export PIPENV_VERBOSITY=1
+export PIPENV_VERBOSITY = 1
 # Use relative .venv folder instead of home-folder based
-export PIPENV_VENV_IN_PROJECT=1
-# Ignore existing venvs (required for travis)
-export PIPENV_IGNORE_VIRTUALENVS=1
-# Setup python path
-export PYTHONPATH=.
+export PIPENV_VENV_IN_PROJECT = 1
+# Ignore existing venvs
+export PIPENV_IGNORE_VIRTUALENVS = 1
 # Make sure we are running with an explicit encoding
-export LC_ALL=C.UTF-8
-export LANG=C.UTF-8
-# Current package version
+export LC_ALL = C
+export LANG = C.UTF-8
+# Set configuration folder to venv
+export PYPE_CONFIG_FOLDER = $(shell pwd)/.venv/.pype-cli
+# Process variables
 VERSION = $(shell python3 setup.py --version)
+PY_FILES := setup.py my_module tests
 
 all: clean venv build
 
@@ -32,10 +33,23 @@ shell:
 
 clean:
 	@echo Clean project base
-	rm -rfv .venv .tox .egg build dist src
-	find . -type d -name ".ropeproject" -exec rm -rf "{}" +;
-	find . -type d -name ".pytest_cache" -exec rm -rf "{}" +;
-	find . -type d -name "__pycache__" -exec rm -rf "{}" +;
+	find . -type d \
+	-name ".venv" -o \
+	-name ".tox" -o \
+	-name ".ropeproject" -o \
+	-name ".mypy_cache" -o \
+	-name ".pytest_cache" -o \
+	-name "__pycache__" -o \
+	-iname "*.egg-info" -o \
+	-name "build" -o \
+	-name "dist" \
+	|xargs rm -rfv
+
+	find . -type f \
+	-name "pyproject.toml" -o \
+	-name "Pipfile.lock" \
+	|xargs rm -rfv
+
 
 test:
 	@echo Run all tests in default virtualenv
@@ -45,19 +59,24 @@ testall:
 	@echo Run all tests against all virtualenvs defined in tox.ini
 	pipenv run tox -c setup.cfg tests
 
-coverage:
-	@echo Run test coverage checks
-	pipenv run py.test --verbose tests
-
 isort:
 	@echo Check for incorrectly sorted imports
-	pipenv run isort --check-only .
+	pipenv run isort --check-only $(PY_FILES)
+
+isort-apply:
+	@echo Check for incorrectly sorted imports
+	pipenv run isort $(PY_FILES)
+
+mypy:
+	@echo Run static code checks against source code base
+	pipenv run mypy my_module
+	pipenv run mypy tests
 
 lint:
 	@echo Run code formatting checks against source code base
 	pipenv run flake8 my_module tests
 
-build: test coverage isort lint
+build: test mypy isort lint
 	@echo Run setup.py-based build process to package application
 	pipenv run python setup.py bdist_wheel
 
