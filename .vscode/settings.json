@@ -1,6 +1,5 @@
 {
     "python.pythonPath": ".venv/bin/python",
-    // PEP8 settings (https://www.python.org/dev/peps/pep-0008/)
     "python.analysis.extraPaths": [
         "my_module",
         "tests",
@@ -10,13 +9,10 @@
     "editor.insertSpaces": true,
     "editor.wordWrapColumn": 80,
     "editor.wordWrap": "wordWrapColumn",
-    // Single newline at end of file
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
-    // Always format on save
     "editor.formatOnSave": true,
-    // Linting and code qualiy
     "python.linting.enabled": true,
     "python.linting.lintOnSave": true,
     "python.linting.pylintEnabled": false,
@@ -25,7 +21,6 @@
     "python.linting.flake8Args": [
         "--verbose"
     ],
-    // Unit testing (only one framework can be active)
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true,
