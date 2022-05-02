@@ -10,7 +10,7 @@
 
 ## Setup
 
-- Make sure that `python` and `poetry` is installed and available on the path (Python 2 is not supported)
+- Make sure that `python` and `poetry` is installed and available on the path. Python 2 is not supported – :skull:
 - On first checkout run `make` to initialize the project configuration and build everything
 - Refer to [the Makefile](Makefile) to learn about the various operations available
 - To rename the project you can use [the provided script](__rename__.sh): `./__rename__.sh`
