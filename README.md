@@ -13,7 +13,7 @@
 - Make sure that `python` and `poetry` is installed and available on the path (Python 2 is not supported)
 - On first checkout run `make` to initialize the project configuration and build everything
 - Refer to [the Makefile](Makefile) to learn about the various operations available
-- To rename the project you can use [the provided script](__rename__.sh)
+- To rename the project you can use [the provided script](__rename__.sh): `./__rename__.sh`
 
 ## Features
 
@@ -24,7 +24,7 @@
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
 - [isort](https://pypi.org/project/isort/) support for automated import sorting
 - [mpyp](https://pypi.org/project/mypy/) support for type checking
-- Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
+- Publishing to PyPi.org
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
 - [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration
 
