@@ -1,5 +1,4 @@
 {
-    "python.pythonPath": ".venv/bin/python",
     "python.analysis.extraPaths": [
         "my_module",
         "tests",
@@ -22,7 +21,6 @@
         "--verbose"
     ],
     "python.testing.unittestEnabled": false,
-    "python.testing.nosetestsEnabled": false,
     "python.testing.pytestEnabled": true,
     "python.testing.pytestArgs": []
 }
