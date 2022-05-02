@@ -1,0 +1,11 @@
+[flake8]
+# Recommend matching the black line length (default 88),
+# rather than using the flake8 default of 79:
+max-line-length = 88
+# Q003 Change outer quotes to avoid escaping inner quotes
+# W503 Line break before binary operator (preferred way)
+# E203 See https://github.com/PyCQA/pycodestyle/issues/373
+extend-ignore = "Q003,W503,E203"
+# flake8-use-fstring
+percent-greedy = 0
+format-greedy = 2

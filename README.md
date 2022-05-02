@@ -2,12 +2,6 @@
 
 > A best-practices template project for Python3 modules
 
---------------------------------------------------------------------------------
-
-**Disclaimer**: If you see this on [pypi.org](https://pypi.org/project/python3-boilerplate/) please note that the project is only published here for testing purposes. Please visit [GitHub](https://github.com/BastiTee/python3-boilerplate) for the related template project.
-
---------------------------------------------------------------------------------
-
 ## Setup
 
 - Make sure that `python` and `poetry` is installed and available on the path. Python 2 is not supported – :skull:
@@ -18,8 +12,9 @@
 ## Features
 
 - Basic project/module organization according to <https://packaging.python.org>
-- `Makefile` bootstrapping script
+- Makefile bootstrapping script
 - [poetry](https://python-poetry.org/) with virtual environments and project builds
+- [black](https://github.com/psf/black) code formatting
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
 - [isort](https://pypi.org/project/isort/) support for automated import sorting
@@ -41,8 +36,8 @@
 
 ## Future ideas and todos
 
-- Introduce [black](https://github.com/psf/black) in favour of other linters
-- Introce Python 3.7 and Python 3.10 to test matrix
+- Introduce Python 3.7 and Python 3.10 to test matrix
+- Embed flake8 config into `pyproject.toml` once they support it ([see](https://github.com/PyCQA/flake8/issues/234))
 
 ## Licensing
 

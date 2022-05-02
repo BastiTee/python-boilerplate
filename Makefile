@@ -52,14 +52,17 @@ isort-apply:
 
 mypy:
 	@echo Run static code checks against source code base
-	$(POETRY_CMD) run mypy my_module
-	$(POETRY_CMD) run mypy tests
+	$(POETRY_CMD) run mypy $(PY_FILES)
+
+black:
+	@echo Run code formatting using black
+	$(POETRY_CMD) run black $(PY_FILES)
 
 lint:
 	@echo Run code formatting checks against source code base
 	$(POETRY_CMD) run flake8 $(PY_FILES)
 
-build: test mypy isort lint
+build: test mypy isort black lint
 	@echo Run setup.py-based build process to package application
 	$(POETRY_CMD) build
 

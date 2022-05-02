@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "my_module"
-version = "0.0.6"
+version = "0.0.7"
 description = ""
 license = "Apache 2.0"
 authors = ["Basti Tee <basti.tee@posteo.de>"]
@@ -38,6 +38,7 @@ rope = "^1.0.0"
 twine = "^4.0.0"
 mypy = "^0.950"
 typing-extensions = "^4.2.0"
+black = "^22.3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -62,10 +63,5 @@ warn_unreachable = true
 [tool.pytest]
 addopts = "-p no:warnings"
 
-[tool.flake8]
-# Q003 Change outer quotes to avoid escaping inner quotes
-# W503 line break before binary operator (preferred way)
-ignore = "Q003,W503"
-# flake8-use-fstring
-percent-greedy = 0
-format-greedy = 2
+[tool.black]
+skip-string-normalization = true

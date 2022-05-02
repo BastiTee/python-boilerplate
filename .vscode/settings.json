@@ -6,7 +6,7 @@
     ],
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
-    "editor.wordWrapColumn": 80,
+    "editor.wordWrapColumn": 88,
     "editor.wordWrap": "wordWrapColumn",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
