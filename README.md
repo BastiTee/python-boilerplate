@@ -41,8 +41,7 @@
 
 ## Future ideas and todos
 
-- Introduce [black](https://github.com/psf/black) in favour of other linters
-- Introce Python 3.7 and Python 3.10 to test matrix
+- Introduce Python 3.7 and Python 3.10 to test matrix
 
 ## Licensing
 

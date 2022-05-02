@@ -38,6 +38,7 @@ rope = "^1.0.0"
 twine = "^4.0.0"
 mypy = "^0.950"
 typing-extensions = "^4.2.0"
+black = "^22.3.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -69,3 +70,6 @@ ignore = "Q003,W503"
 # flake8-use-fstring
 percent-greedy = 0
 format-greedy = 2
+
+[tool.black]
+skip-string-normalization = true
