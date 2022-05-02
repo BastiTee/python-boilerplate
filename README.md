@@ -1,6 +1,6 @@
 # python3-boilerplate ![CI](https://github.com/BastiTee/python3-boilerplate/workflows/CI/badge.svg)
 
-> A best-practices template project for Python3 modules
+> A best-practices template project for Python modules
 
 ## Setup
 
