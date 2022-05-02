@@ -26,7 +26,7 @@
 - [mpyp](https://pypi.org/project/mypy/) support for type checking
 - Publishing to PyPi.org
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
-- [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration
+- [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration with multi-python testing
 
 ## Resources
 
@@ -41,8 +41,8 @@
 
 ## Future ideas and todos
 
-- Include [tox](https://tox.readthedocs.io/) for supported Python versions
 - Introduce [black](https://github.com/psf/black) in favour of other linters
+- Introce Python 3.7 and Python 3.10 to test matrix
 
 ## Licensing
 
