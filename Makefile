@@ -69,7 +69,7 @@ build:
 # 	git push --tags
 
 run:
-	@echo Execute my_module directly
+	@echo Execute package directly
 	$(POETRY_CMD) run python -m my_module
 
 fetch-latest-boilerplate:
