@@ -26,3 +26,5 @@ do
     sed -i.rename-bak "s/my_module/$1/g" $file
 done
 find . -type f -iname "*.rename-bak" -exec rm -f {} \;
+
+rm $( basename $0 )
