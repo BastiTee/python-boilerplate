@@ -1,35 +1,17 @@
 # Required executables
-ifeq (, $(shell which python3))
- $(error "No python3 on PATH.")
+ifeq (, $(shell which python))
+ $(error "No python on PATH.")
 endif
-ifeq (, $(shell which pipenv))
- $(error "No pipenv on PATH.")
+POETRY_CMD := python -m poetry
+ifeq (, $(shell $(POETRY_CMD)))
+ $(error "Poetry not available in Python installation.")
 endif
 
-# Suppress warning if pipenv is started inside .venv
-export PIPENV_VERBOSITY = 1
-# Use relative .venv folder instead of home-folder based
-export PIPENV_VENV_IN_PROJECT = 1
-# Ignore existing venvs
-export PIPENV_IGNORE_VIRTUALENVS = 1
-# Make sure we are running with an explicit encoding
 export LC_ALL = C
 export LANG = C.UTF-8
-# Set configuration folder to venv
-export PYPE_CONFIG_FOLDER = $(shell pwd)/.venv/.pype-cli
-# Process variables
-VERSION = $(shell python3 setup.py --version)
-PY_FILES := setup.py my_module tests
+PY_FILES := my_module tests
 
 all: clean venv build
-
-venv: clean
-	@echo Initialize virtualenv, i.e., install required packages etc.
-	pipenv --three install --dev
-
-shell:
-	@echo Initialize virtualenv and open a new shell using it
-	pipenv shell
 
 clean:
 	@echo Clean project base
@@ -45,50 +27,50 @@ clean:
 	-name "dist" \
 	|xargs rm -rfv
 
-	find . -type f \
-	-name "pyproject.toml" -o \
-	-name "Pipfile.lock" \
-	|xargs rm -rfv
+venv: clean
+	@echo Initialize virtualenv, i.e., install required packages etc.
+	$(POETRY_CMD) config virtualenvs.in-project true --local
+	$(POETRY_CMD) env use python3
 
+shell:
+	@echo Initialize virtualenv and open a new shell using it
+	$(POETRY_CMD) shell
 
 test:
 	@echo Run all tests in default virtualenv
-	pipenv run py.test tests
-
-testall:
-	@echo Run all tests against all virtualenvs defined in tox.ini
-	pipenv run tox -c setup.cfg tests
+	$(POETRY_CMD) run py.test tests
 
 isort:
 	@echo Check for incorrectly sorted imports
-	pipenv run isort --check-only $(PY_FILES)
+	$(POETRY_CMD) run isort --check-only $(PY_FILES)
 
 isort-apply:
 	@echo Check for incorrectly sorted imports
-	pipenv run isort $(PY_FILES)
+	$(POETRY_CMD) run isort $(PY_FILES)
 
 mypy:
 	@echo Run static code checks against source code base
-	pipenv run mypy my_module
-	pipenv run mypy tests
+	$(POETRY_CMD) run mypy my_module
+	$(POETRY_CMD) run mypy tests
 
 lint:
 	@echo Run code formatting checks against source code base
-	pipenv run flake8 my_module tests
+	$(POETRY_CMD) run flake8 $(PY_FILES)
 
-build: test mypy isort lint
+build:
+#test mypy isort lint
 	@echo Run setup.py-based build process to package application
-	pipenv run python setup.py bdist_wheel
+	$(POETRY_CMD) build
 
-publish: all
-	@echo Release to pypi.org and create git tag
-	pipenv run twine upload dist/*
-	git tag -a $(VERSION) -m "Version $(VERSION)"
-	git push --tags
+# publish: all
+# 	@echo Release to pypi.org and create git tag
+# 	pipenv run twine upload dist/*
+# 	git tag -a $(VERSION) -m "Version $(VERSION)"
+# 	git push --tags
 
 run:
 	@echo Execute my_module directly
-	pipenv run python -m my_module
+	$(POETRY_CMD) run python -m my_module
 
 fetch-latest-boilerplate:
 	@echo Fetch latest python3-boilerplate version from github

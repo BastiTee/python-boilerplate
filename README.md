@@ -22,7 +22,6 @@
 - [pipenv](https://github.com/pypa/pipenv) and virtual environments
 - [distutils](https://docs.python.org/3/library/distutils.html)-based installer script
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
-- Multicore/-interpreter testing with [tox](https://tox.readthedocs.io/en/latest/)
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
 - [isort](https://pypi.org/project/isort/) support for automated import sorting
 - [mpyp](https://pypi.org/project/mypy/) support for type checking
@@ -67,6 +66,7 @@ rm -rf my_module tests/test_utils.py __rename__.sh
 - Make sure [tox](https://tox.readthedocs.io/) is working as expected for supported Python versions
 - Introduce [black](https://github.com/psf/black) in favour of other linters
 - Introduce [pyproject.toml](https://www.python.org/dev/peps/pep-0518/) along with bleeding edge build tools like [flit](https://flit.readthedocs.io/en/latest/rationale.html) or [poetry](https://python-poetry.org/)
+- Multicore/-interpreter testing with [tox](https://tox.readthedocs.io/en/latest/)
 
 ## Licensing
 
