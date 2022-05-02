@@ -10,6 +10,7 @@ endif
 export LC_ALL = C
 export LANG = C.UTF-8
 PY_FILES := my_module tests
+VERSION := $(shell poetry version --short)
 
 all: clean venv build
 
@@ -66,11 +67,15 @@ run:
 	@echo Execute package directly
 	$(POETRY_CMD) run python -m my_module
 
-# publish: all
-# 	@echo Release to pypi.org and create git tag
-# 	pipenv run twine upload dist/*
-# 	git tag -a $(VERSION) -m "Version $(VERSION)"
-# 	git push --tags
+clear-cache:
+	@echo Clear poetry cache
+	$(POETRY_CMD) cache clear pypi --all --no-interaction
+
+publish:
+	@echo Release version $(VERSION) to pypi.org and create git tag
+	$(POETRY_CMD) publish
+	git tag -a $(VERSION) -m "Version $(VERSION)"
+	git push --tags
 
 fetch-latest-boilerplate:
 	@echo Fetch latest python3-boilerplate version from github
