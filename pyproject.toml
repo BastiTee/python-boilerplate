@@ -1,0 +1,71 @@
+[tool.poetry]
+name = "my_module"
+version = "0.0.5"
+description = ""
+license = "Apache 2.0"
+authors = ["Basti Tee <basti.tee@posteo.de>"]
+maintainers = ["Basti Tee <basti.tee@posteo.de>"]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^8.1.3"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "^1.6.0"
+flake8 = "^4.0.1"
+flake8-quotes = "^3.3.1"
+flake8-docstrings = "^1.6.0"
+flake8-builtins = "^1.5.3"
+flake8-blind-except = "^0.2.1"
+flake8-use-fstring = "^1.3"
+flake8-isort = "^4.1.1"
+pep8-naming = "^0.12.1"
+isort = "^5.10.1"
+pytest = "^7.1.2"
+rope = "^1.0.0"
+twine = "^4.0.0"
+mypy = "^0.950"
+typing-extensions = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+# Untyped definitions and calls
+# Disallows defining functions without type annotations or with
+# incomplete type annotations.
+disallow_untyped_defs = true
+# Type-checks the interior of functions without type annotations
+check_untyped_defs = true
+# Import discovery
+follow_imports = "normal"
+ignore_missing_imports = true
+# Warning configuration
+warn_unused_ignores = true
+warn_unreachable = true
+# Error message config
+# pretty = true
+
+[tool.pytest]
+addopts = "-p no:warnings"
+
+[tool.flake8]
+# Q003 Change outer quotes to avoid escaping inner quotes
+# W503 line break before binary operator (preferred way)
+ignore = "Q003,W503"
+# flake8-use-fstring
+percent-greedy = 0
+format-greedy = 2

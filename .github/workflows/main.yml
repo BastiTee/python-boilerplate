@@ -9,12 +9,18 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-
+        strategy:
+            matrix:
+                python-version: ["pypy-3.8", "pypy-3.9"]
+        name: ${{ matrix.python-version }}
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/setup-python@v1
-
+            - name: Setup python
+              uses: actions/setup-python@v3
+              with:
+                  python-version: "${{ matrix.python-version }}"
+                  architecture: "x64"
             - name: CI checks
               run: |
-                  python3 -m pip install pipenv
+                  python3 -m pip install wheel poetry
                   make

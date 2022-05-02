@@ -3,7 +3,7 @@ cd "$( cd "$( dirname "$0" )"; pwd )"
 
 show_help() {
     cat << EOF
-Rename 'my_module' to your preferred project name.
+Rename package to your preferred project name.
 
 Usage: $( basename $0 ) <NEW_NAME>
 

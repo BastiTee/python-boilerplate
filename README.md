@@ -10,45 +10,23 @@
 
 ## Setup
 
-- Make sure that `python3` and `pip3` is installed and available on the path (on Ubuntu: `sudo apt-get install python3 python3-pip`)
-- On first checkout run `make venv` to initialize the project configuration
+- Make sure that `python` and `poetry` is installed and available on the path (Python 2 is not supported)
+- On first checkout run `make` to initialize the project configuration and build everything
 - Refer to [the Makefile](Makefile) to learn about the various operations available
-- To rename the project you can use [the provided script](__rename__.sh)
+- To rename the project you can use [the provided script](__rename__.sh): `./__rename__.sh`
 
 ## Features
 
 - Basic project/module organization according to <https://packaging.python.org>
-- `Makefile` management script
-- [pipenv](https://github.com/pypa/pipenv) and virtual environments
-- [distutils](https://docs.python.org/3/library/distutils.html)-based installer script
+- `Makefile` bootstrapping script
+- [poetry](https://python-poetry.org/) with virtual environments and project builds
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
-- Multicore/-interpreter testing with [tox](https://tox.readthedocs.io/en/latest/)
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
 - [isort](https://pypi.org/project/isort/) support for automated import sorting
 - [mpyp](https://pypi.org/project/mypy/) support for type checking
-- Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
+- Publishing to PyPi.org
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
 - [Github actions](https://github.com/BastiTee/python3-boilerplate/actions) continuous integration
-
-## How to use in existing project
-
-To use it in an existing project you can merge the remote changes to your project.
-
-- Add remote to access the template project
-
-```shell
-git remote add py3template git@github.com:BastiTee/python3-boilerplate.git
-git pull py3template master --allow-unrelated-histories
-```
-
-- Solve all merge conflicts and commit. Most likely there will be a lot
-- Do whatever is necessary to remove the boilerplate you don't need, e.g.
-
-```shell
-rm -rf my_module tests/test_utils.py __rename__.sh
-```
-
-- Commit your changes and push to your project
 
 ## Resources
 
@@ -63,10 +41,8 @@ rm -rf my_module tests/test_utils.py __rename__.sh
 
 ## Future ideas and todos
 
-- Optional static type hints ([PEP 484](https://www.python.org/dev/peps/pep-0484/)) with [mypy](https://github.com/python/mypy)
-- Make sure [tox](https://tox.readthedocs.io/) is working as expected for supported Python versions
+- Include [tox](https://tox.readthedocs.io/) for supported Python versions
 - Introduce [black](https://github.com/psf/black) in favour of other linters
-- Introduce [pyproject.toml](https://www.python.org/dev/peps/pep-0518/) along with bleeding edge build tools like [flit](https://flit.readthedocs.io/en/latest/rationale.html) or [poetry](https://python-poetry.org/)
 
 ## Licensing
 
