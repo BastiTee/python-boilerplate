@@ -63,13 +63,5 @@ warn_unreachable = true
 [tool.pytest]
 addopts = "-p no:warnings"
 
-[tool.flake8]
-# Q003 Change outer quotes to avoid escaping inner quotes
-# W503 line break before binary operator (preferred way)
-ignore = "Q003,W503"
-# flake8-use-fstring
-percent-greedy = 0
-format-greedy = 2
-
 [tool.black]
 skip-string-normalization = true

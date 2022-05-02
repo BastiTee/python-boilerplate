@@ -16,7 +16,7 @@ from my_module.utils import add_two_numbers
 def main(number_a: int, number_b: int) -> None:
     """Enter main application."""
     print('Executed from command line...')
-    print(f'2 + 2 equals {add_two_numbers(number_a, number_b)}')
+    print(f'{number_a} + {number_b} equals {add_two_numbers(number_a, number_b)}')
 
 
 if __name__ == '__main__':
