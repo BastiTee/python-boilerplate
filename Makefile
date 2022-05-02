@@ -31,6 +31,7 @@ venv: clean
 	@echo Initialize virtualenv, i.e., install required packages etc.
 	$(POETRY_CMD) config virtualenvs.in-project true --local
 	$(POETRY_CMD) env use python3
+	$(POETRY_CMD) install
 
 shell:
 	@echo Initialize virtualenv and open a new shell using it
@@ -57,20 +58,19 @@ lint:
 	@echo Run code formatting checks against source code base
 	$(POETRY_CMD) run flake8 $(PY_FILES)
 
-build:
-#test mypy isort lint
+build: test mypy isort lint
 	@echo Run setup.py-based build process to package application
 	$(POETRY_CMD) build
+
+run:
+	@echo Execute package directly
+	$(POETRY_CMD) run python -m my_module
 
 # publish: all
 # 	@echo Release to pypi.org and create git tag
 # 	pipenv run twine upload dist/*
 # 	git tag -a $(VERSION) -m "Version $(VERSION)"
 # 	git push --tags
-
-run:
-	@echo Execute package directly
-	$(POETRY_CMD) run python -m my_module
 
 fetch-latest-boilerplate:
 	@echo Fetch latest python3-boilerplate version from github
