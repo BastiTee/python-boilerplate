@@ -13,7 +13,7 @@ jobs:
             matrix:
                 python-version:
                     ["pypy-3.7", "pypy-3.8", "pypy-3.9", "pypy-3.10"]
-        name: Python ${{ matrix.python-version }}
+        name: Version ${{ matrix.python-version }}
         steps:
             - uses: actions/checkout@v2
             - name: Setup python
@@ -23,5 +23,5 @@ jobs:
                   architecture: x64
             - name: CI checks
               run: |
-                  python3 -m pip install poetry
+                  python3 -m pip install wheel poetry
                   make
