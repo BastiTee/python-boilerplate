@@ -4,6 +4,7 @@
 
 ## Setup
 
+- [Use this template.](https://github.com/BastiTee/python3-boilerplate/generate)
 - Make sure that `python` and [`poetry`](https://python-poetry.org/) has been properly installed (Python 2 is not supported – :skull:). Usually a simple `python -m pip install poetry` is enough.
 - On first checkout run `make` to initialize the project configuration and build everything.
 - Refer to [the Makefile](Makefile) to learn about the various operations available. Most of them are just facades for `poetry`.
