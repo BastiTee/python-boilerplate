@@ -12,14 +12,10 @@ jobs:
         strategy:
             matrix:
                 # https://www.python.org/downloads/
-                python-version: ["pypy-3.7", "pypy-3.8", "pypy-3.9"]
+                python-version: ["pypy-3.8", "pypy-3.9"]
         name: ${{ matrix.python-version }}
         steps:
             - uses: actions/checkout@v2
-
-            - name: Install additional dependencies for pypy-3.7
-              if: ${{ matrix.python-version }} == "pypy-3.7"
-              run: sudo apt-get update && sudo apt-get install -y gcc
 
             - name: Setup python
               uses: actions/setup-python@v3

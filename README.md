@@ -37,7 +37,7 @@
 
 ## Future ideas and todos
 
-- Introduce Python 3.7 and Python 3.10 to test matrix
+- Introduce Python 3.10 to test matrix
 - Embed flake8 config into `pyproject.toml` once they support it ([see](https://github.com/PyCQA/flake8/issues/234))
 
 ## Licensing
