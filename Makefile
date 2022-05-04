@@ -35,11 +35,11 @@ venv: clean
 	$(POETRY_CMD) install
 
 shell:
-	@echo Initialize virtualenv and open a new shell using it
+	@echo Open a new shell using virtualenv
 	$(POETRY_CMD) shell
 
 test:
-	@echo Run all tests in default virtualenv
+	@echo Run all tests suites
 	$(POETRY_CMD) run py.test tests
 
 isort:
@@ -47,7 +47,7 @@ isort:
 	$(POETRY_CMD) run isort --check-only $(PY_FILES)
 
 isort-apply:
-	@echo Check for incorrectly sorted imports
+	@echo Check and correct incorrectly sorted imports
 	$(POETRY_CMD) run isort $(PY_FILES)
 
 mypy:
@@ -63,7 +63,7 @@ lint:
 	$(POETRY_CMD) run flake8 $(PY_FILES)
 
 build: test mypy isort black lint
-	@echo Run setup.py-based build process to package application
+	@echo Run build process to package application
 	$(POETRY_CMD) build
 
 run:
@@ -79,12 +79,3 @@ publish:
 	$(POETRY_CMD) publish
 	git tag -a $(VERSION) -m "Version $(VERSION)"
 	git push --tags
-
-fetch-latest-boilerplate:
-	@echo Fetch latest python3-boilerplate version from github
-	git remote add py3template git@github.com:BastiTee/python3-boilerplate.git \
-	||true
-	git pull py3template main --allow-unrelated-histories ||true
-	@echo ----------------------------------------------------
-	@echo Resolve all merge conflicts and commit your changes!
-	@echo ----------------------------------------------------
