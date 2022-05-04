@@ -1,6 +1,7 @@
 #!/bin/bash
 cd "$( cd "$( dirname "$0" )"; pwd )"
 
+# Prepare cmd-line parsing
 show_help() {
     cat << EOF
 Rename package to your preferred project name.
@@ -13,18 +14,29 @@ Arguments:
 
 EOF
 }
-
 if [ -z "$1" ]; then show_help; exit 1; fi
 
+# Clean up code base
 make clean
-rm -rf "$1"
+
+# Rename module
 mv -v my_module "$1"
+
+# Replace module references with new name
 find . -type f -exec grep -l my_module {} + |\
 grep -v -e $( basename $0 ) -e ".git" |while read file
 do
     echo "- RENAME $file"
     sed -i.rename-bak "s/my_module/$1/g" $file
 done
-find . -type f -iname "*.rename-bak" -exec rm -f {} \;
+# Reset version
+sed -i.rename-bak "s/version = .*/version = \"0.0.1\"/g" pyproject.toml
 
+# Overwrite README file
+cat <<EOF >README.md
+# ${1}
+EOF
+
+# Clean up
+find . -type f -iname "*.rename-bak" -exec rm -f {} \;
 rm $( basename $0 )
