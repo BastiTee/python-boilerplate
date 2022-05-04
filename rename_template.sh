@@ -29,12 +29,14 @@ do
     echo "- RENAME $file"
     sed -i.rename-bak "s/my_module/$1/g" $file
 done
-find . -type f -iname "*.rename-bak" -exec rm -f {} \;
+# Reset version
+sed -i.rename-bak "s/version = .*/version = \"0.0.1\"/g" pyproject.toml
 
 # Overwrite README file
 cat <<EOF >README.md
 # ${1}
 EOF
 
-# Remove this script
+# Clean up
+find . -type f -iname "*.rename-bak" -exec rm -f {} \;
 rm $( basename $0 )
