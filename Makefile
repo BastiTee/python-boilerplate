@@ -76,6 +76,6 @@ clear-cache:
 
 publish:
 	@echo Release version $(VERSION) to pypi.org and create git tag
-	$(POETRY_CMD) publish
+# $(POETRY_CMD) publish
 	git tag -a $(VERSION) -m "Version $(VERSION)"
 	git push --tags
