@@ -12,7 +12,13 @@ jobs:
         strategy:
             matrix:
                 # https://www.python.org/downloads/
-                python-version: ["pypy-3.8", "pypy-3.9"]
+                python-version: [
+                    "3.7", # EOL: 2023-06-27
+                    "3.8", # EOL: 2024-10
+                    "3.9", # EOL: 2025-10
+                    "3.10", # EOL: 2026-10
+                    "3.11" # EOL: 2027-10
+                ]
         name: ${{ matrix.python-version }}
         steps:
             - uses: actions/checkout@v2
@@ -21,7 +27,6 @@ jobs:
               uses: actions/setup-python@v3
               with:
                   python-version: "${{ matrix.python-version }}"
-                  architecture: "x64"
 
             - name: CI checks
               run: |
