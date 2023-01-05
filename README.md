@@ -4,10 +4,11 @@
 
 ## Setup
 
-- [Use this template](https://github.com/BastiTee/python3-boilerplate/generate)
-- Make sure that `python` (Python 2 is not supported – :skull:) and [`poetry`](https://python-poetry.org/) have been properly installed and are available on the system path. For the latter this usually just means `python -m pip install poetry`. For Python I recommend using [`pyenv`](https://github.com/pyenv/pyenv). 
-- On first checkout run `make` to initialize the project configuration and build everything
-- Refer to [the Makefile](Makefile) to learn about the various operations available. Most of them are just facades for `poetry`
+- [Use this template](https://github.com/BastiTee/python3-boilerplate/generate).
+- Make sure that `python` (Python 2 is not supported – :skull:) is installed and available on system path. I recommend using [`pyenv`](https://github.com/pyenv/pyenv).
+- Make sure [`poetry`](https://python-poetry.org/) is installed. This usually just means `python -m pip install poetry`.
+- On first checkout run `make` to initialize the project configuration and build everything.
+- Refer to [the Makefile](Makefile) to learn about the various operations available. Most of them are just facades for `poetry`.
 - To rename the project you can use [the provided script](rename_template.sh): `./rename_template.sh`
 
 ## Features
