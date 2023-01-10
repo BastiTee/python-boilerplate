@@ -31,7 +31,6 @@ clean:
 venv: clean
 	@echo Initialize virtualenv, i.e., install required packages etc.
 	$(POETRY_CMD) config virtualenvs.in-project true --local
-	$(POETRY_CMD) env use python3
 	$(POETRY_CMD) install
 
 shell:
