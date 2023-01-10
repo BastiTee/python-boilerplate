@@ -1,12 +1,17 @@
 # Changelog
 
+## 0.1.0
+
+* Removed all explicit calls for Python 3 and assuming it everywhere (including project name) [#8](https://github.com/BastiTee/python-boilerplate/pull/8)
+* Added a changelog [#9](https://github.com/BastiTee/python-boilerplate/pull/9)
+
 ## 0.0.9
 
 * Added support for Python 3.9-3.11
 * Updated dependencies
 
-[PR #6](https://github.com/BastiTee/python-boilerplate/pull/6)
-[PR #7](https://github.com/BastiTee/python-boilerplate/pull/7)
+[#6](https://github.com/BastiTee/python-boilerplate/pull/6)
+[#7](https://github.com/BastiTee/python-boilerplate/pull/7)
 
 ## 0.0.8
 
@@ -15,14 +20,14 @@
 * Improved Makefile
 * Improve rename script
 
-[PR #5](https://github.com/BastiTee/python-boilerplate/pull/5)
+[#5](https://github.com/BastiTee/python-boilerplate/pull/5)
 
 ## 0.0.7
 
 * Introduced black code formatting
 * Cleaned up README.md
 
-[PR #4](https://github.com/BastiTee/python-boilerplate/pull/4)
+[#4](https://github.com/BastiTee/python-boilerplate/pull/4)
 
 ## 0.0.6
 
@@ -30,7 +35,7 @@
 * Introduced matrix testing via Github actions
 * Updated configuration files
 
-[PR #3](https://github.com/BastiTee/python-boilerplate/pull/3)
+[#3](https://github.com/BastiTee/python-boilerplate/pull/3)
 
 ## 0.0.5
 
