@@ -78,9 +78,15 @@ lint:
 
 # Executing and publishing
 
-run:
-	@echo Execute package directly
+run-venv:
+	@echo Execute package directly in virtual environment
 	$(POETRY_CMD) run python -m my_module
+
+install-run:
+	@echo Install and run package via CLI using the activated Python env
+	python -m pip install --upgrade .
+	@echo --- Note: The next command might fail before you reload your shell
+	my_module_cli
 
 publish:
 	@echo Release version $(VERSION)

@@ -24,6 +24,7 @@
 - Publishing to PyPi.org
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
 - [Github actions](https://github.com/BastiTee/python-boilerplate/actions) continuous integration with multi-python testing
+- Executable script so after package installation you can run from the CLI using `my_module_cli`
 
 ## Resources
 
