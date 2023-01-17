@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+* Added a script installer for fast CLI access
+* Improved readability and infos in README
+
+[#10](https://github.com/BastiTee/python-boilerplate/pull/10)
+
 ## 0.1.0
 
 * Removed all explicit calls for Python 3 and assuming it everywhere (including project name) [#8](https://github.com/BastiTee/python-boilerplate/pull/8)
