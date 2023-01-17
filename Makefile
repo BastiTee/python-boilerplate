@@ -12,7 +12,12 @@ export LANG = C.UTF-8
 PY_FILES := my_module tests
 VERSION := $(shell poetry version --short)
 
+# Bundle tasks
+
 all: clean venv build
+	@echo Executed default build pipeline
+
+# Clean up and set up
 
 clean:
 	@echo Clean project base
@@ -28,6 +33,10 @@ clean:
 	-name "dist" \
 	|xargs rm -rfv
 
+clear-cache:
+	@echo Clear poetry cache
+	$(POETRY_CMD) cache clear pypi --all --no-interaction
+
 venv: clean
 	@echo Initialize virtualenv, i.e., install required packages etc.
 	$(POETRY_CMD) config virtualenvs.in-project true --local
@@ -37,9 +46,19 @@ shell:
 	@echo Open a new shell using virtualenv
 	$(POETRY_CMD) shell
 
+# Building software
+
+build: test mypy isort black lint
+	@echo Run build process to package application
+	$(POETRY_CMD) build
+
 test:
 	@echo Run all tests suites
 	$(POETRY_CMD) run py.test tests
+
+mypy:
+	@echo Run static code checks against source code base
+	$(POETRY_CMD) run mypy $(PY_FILES)
 
 isort:
 	@echo Check for incorrectly sorted imports
@@ -49,10 +68,6 @@ isort-apply:
 	@echo Check and correct incorrectly sorted imports
 	$(POETRY_CMD) run isort $(PY_FILES)
 
-mypy:
-	@echo Run static code checks against source code base
-	$(POETRY_CMD) run mypy $(PY_FILES)
-
 black:
 	@echo Run code formatting using black
 	$(POETRY_CMD) run black $(PY_FILES)
@@ -61,20 +76,21 @@ lint:
 	@echo Run code formatting checks against source code base
 	$(POETRY_CMD) run flake8 $(PY_FILES)
 
-build: test mypy isort black lint
-	@echo Run build process to package application
-	$(POETRY_CMD) build
+# Executing and publishing
 
-run:
-	@echo Execute package directly
+run-venv:
+	@echo Execute package directly in virtual environment
 	$(POETRY_CMD) run python -m my_module
 
-clear-cache:
-	@echo Clear poetry cache
-	$(POETRY_CMD) cache clear pypi --all --no-interaction
+install-run:
+	@echo Install and run package via CLI using the activated Python env
+	python -m pip install --upgrade .
+	@echo --- Note: The next command might fail before you reload your shell
+	my_module_cli
 
 publish:
-	@echo Release version $(VERSION) to pypi.org and create git tag
-# $(POETRY_CMD) publish
+	@echo Release version $(VERSION)
 	git tag -a $(VERSION) -m "Version $(VERSION)"
 	git push --tags
+# Uncomment the following line to integrate with pypi publishing
+# $(POETRY_CMD) publish

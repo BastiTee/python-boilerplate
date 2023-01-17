@@ -4,12 +4,12 @@
 
 ## Setup
 
-- [Use this template](https://github.com/BastiTee/python-boilerplate/generate).
+- Create a new repository [using this template](https://github.com/BastiTee/python-boilerplate/generate).
 - Make sure that `python` is installed and available on system path. I recommend using [`pyenv`](https://github.com/pyenv/pyenv). Note that Python 2 is _not_ supported. It's end of life was on January 1st, 2020.
 - Make sure [`poetry`](https://python-poetry.org/) is installed. This usually just means `python -m pip install poetry`.
-- On first checkout run `make` to initialize the project configuration and build everything.
+- Rename the project using [the provided script](rename_template.sh): `./rename_template.sh`.
+- Run `make` to initialize the project configuration and build everything.
 - Refer to [the Makefile](Makefile) to learn about the various operations available. Most of them are just facades for `poetry`.
-- To rename the project you can use [the provided script](rename_template.sh): `./rename_template.sh`
 
 ## Features
 
@@ -24,6 +24,7 @@
 - Publishing to PyPi.org
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
 - [Github actions](https://github.com/BastiTee/python-boilerplate/actions) continuous integration with multi-python testing
+- Executable script so after package installation you can run from the CLI using `my_module_cli`
 
 ## Resources
 
@@ -39,7 +40,8 @@
 ## Future ideas and todos
 
 - Embed flake8 config into `pyproject.toml` once they support it ([see](https://github.com/PyCQA/flake8/issues/234))
+- Use cookiecutter instead of [shell script](./rename_template.sh) (it does work fine at the moment though)
 
 ## Licensing
 
-This project is licensed under [Apache License 2.0](LICENSE.txt)
+This project is licensed under [Apache License 2.0](LICENSE.txt).

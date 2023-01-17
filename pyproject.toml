@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "my_module"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 license = "Apache 2.0"
 authors = ["Basti Tee <basti.tee@posteo.de>"]
@@ -38,6 +38,9 @@ mypy = "^0.950"
 typing-extensions = "^4.2.0"
 black = "^22.3.0"
 pipdeptree = "^2.2.1"
+
+[tool.poetry.scripts]
+my_module_cli = 'my_module.__main__:main'
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
