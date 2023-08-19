@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- Codebase clean-ups
+
 ## 0.3.0
 
 - Removed support for Python 3.7
@@ -85,8 +89,7 @@ First release. Contains support for:
 ## How to release a new version
 
 - Finish development on branch and merge to main
-- Update this changelog and commit
-- Bump version number in `pyproject.toml`
+- Update this changelog, bump version number in `pyproject.toml` and commit
 - Run
 
 ```shell
