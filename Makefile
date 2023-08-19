@@ -74,6 +74,10 @@ clear-cache:
 	@echo Clear poetry cache
 	$(POETRY_CMD) cache clear pypi --all --no-interaction
 
+outdated:
+	@echo Show outdated dependencies
+	$(POETRY_CMD) show --outdated
+
 publish:
 	@echo Release version $(VERSION) to pypi.org and create git tag
 	$(POETRY_CMD) publish
