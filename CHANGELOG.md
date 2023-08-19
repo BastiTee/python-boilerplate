@@ -81,3 +81,17 @@ First release. Contains support for:
 - vscode editor configuration including debugging support, unit test discovery and on-save formatting
 - Dockerized builds and run with nginx/uwsgi
 - Publishing to PyPi.org at <https://pypi.org/project/python3-boilerplate/>
+
+## How to release a new version
+
+- Finish development on branch and merge to main
+- Update this changelog and commit
+- Bump version number in `pyproject.toml`
+- Run
+
+```shell
+VERSION=$( poetry version --short ) &&\
+echo "Release: ${VERSION}" &&\
+git tag -a ${VERSION} -m "Version ${VERSION}" &&\
+git push --tags
+```

@@ -80,7 +80,7 @@ outdated:
 	@echo Show outdated dependencies
 	$(POETRY_CMD) show --outdated
 
-# Executing and publishing
+# Executing
 
 run-venv:
 	@echo Execute package directly in virtual environment
@@ -91,10 +91,3 @@ install-run:
 	python -m pip install --upgrade .
 	@echo --- Note: The next command might fail before you reload your shell
 	my_module_cli
-
-publish:
-	@echo Release version $(VERSION)
-	git tag -a $(VERSION) -m "Version $(VERSION)"
-	git push --tags
-# Uncomment the following line to integrate with pypi publishing
-# $(POETRY_CMD) publish
