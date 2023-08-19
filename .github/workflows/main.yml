@@ -12,7 +12,12 @@ jobs:
         strategy:
             matrix:
                 # https://www.python.org/downloads/
-                python-version: ["3.8", "3.9", "3.10", "3.11"]
+                python-version: [
+                    "3.8", # EOL: 2024-10
+                    "3.9", # EOL: 2025-10
+                    "3.10", # EOL: 2026-10
+                    "3.11" # EOL: 2027-10
+                ]
         name: ${{ matrix.python-version }}
         steps:
             - uses: actions/checkout@v2
