@@ -39,4 +39,4 @@ EOF
 
 # Clean up
 find . -type f -iname "*.rename-bak" -exec rm -f {} \;
-rm $( basename $0 )
+rm -f $( basename $0 ) CHANGELOG.md
