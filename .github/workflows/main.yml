@@ -26,9 +26,8 @@ jobs:
               uses: actions/setup-python@v3
               with:
                   python-version: "${{ matrix.python-version }}"
-                  architecture: "x64"
 
             - name: CI checks
               run: |
-                  python3 -m pip install wheel poetry
+                  python -m pip install wheel poetry
                   make
