@@ -88,6 +88,10 @@ install-run:
 	@echo --- Note: The next command might fail before you reload your shell
 	my_module_cli
 
+outdated:
+	@echo Show outdated dependencies
+	$(POETRY_CMD) show --outdated
+
 publish:
 	@echo Release version $(VERSION)
 	git tag -a $(VERSION) -m "Version $(VERSION)"
