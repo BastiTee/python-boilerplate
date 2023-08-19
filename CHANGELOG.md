@@ -98,3 +98,5 @@ echo "Release: ${VERSION}" &&\
 git tag -a ${VERSION} -m "Version ${VERSION}" &&\
 git push --tags
 ```
+
+- Create a new release under <https://github.com/BastiTee/python-boilerplate/releases>
