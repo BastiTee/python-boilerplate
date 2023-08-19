@@ -76,6 +76,10 @@ lint:
 	@echo Run code formatting checks against source code base
 	$(POETRY_CMD) run flake8 $(PY_FILES)
 
+outdated:
+	@echo Show outdated dependencies
+	$(POETRY_CMD) show --outdated
+
 # Executing and publishing
 
 run-venv:
@@ -87,10 +91,6 @@ install-run:
 	python -m pip install --upgrade .
 	@echo --- Note: The next command might fail before you reload your shell
 	my_module_cli
-
-outdated:
-	@echo Show outdated dependencies
-	$(POETRY_CMD) show --outdated
 
 publish:
 	@echo Release version $(VERSION)
