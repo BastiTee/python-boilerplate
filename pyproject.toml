@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "my_module"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 license = "Apache 2.0"
 authors = ["Basti Tee <basti.tee@posteo.de>"]
