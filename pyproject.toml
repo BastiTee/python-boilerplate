@@ -35,7 +35,7 @@ isort = "^5"
 pytest = "^7"
 mypy = "^1"
 typing-extensions = "^4"
-black = "^23"
+black = "^24"
 pipdeptree = "^2"
 
 [tool.poetry.scripts]
