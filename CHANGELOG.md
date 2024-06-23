@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+- Upgraded all dependencies
+
 ## 0.3.1
 
 - Codebase clean-ups

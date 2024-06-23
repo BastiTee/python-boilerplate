@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "my_module"
-version = "0.3.1"
+version = "0.3.2"
 description = ""
 license = "Apache 2.0"
 authors = ["Basti Tee <basti.tee@posteo.de>"]
@@ -23,7 +23,7 @@ python = "^3.8.1"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^2"
-flake8 = "^6"
+flake8 = "^7"
 flake8-quotes = "^3"
 flake8-docstrings = "^1"
 flake8-builtins = "^2"
@@ -32,10 +32,10 @@ flake8-use-fstring = "^1"
 flake8-isort = "^6"
 pep8-naming = "^0"
 isort = "^5"
-pytest = "^7"
+pytest = "^8"
 mypy = "^1"
 typing-extensions = "^4"
-black = "^23"
+black = "^24"
 pipdeptree = "^2"
 
 [tool.poetry.scripts]
