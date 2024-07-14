@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.3
+
+- Upgraded all dependencies
+- Add support and Github actions matrix for Python 3.12
+
 ## 0.3.2
 
 - Upgraded all dependencies
