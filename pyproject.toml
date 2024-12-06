@@ -21,7 +21,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 # Python version: https://www.python.org/downloads/
-python = "^3.9.0"
+python = ">=3.9,<3.14"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^2"
