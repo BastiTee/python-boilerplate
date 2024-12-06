@@ -12,15 +12,16 @@ classifiers = [
     "Natural Language :: English",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12"
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8.1"
+# Python version: https://www.python.org/downloads/
+python = "^3.9.0"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^2"
