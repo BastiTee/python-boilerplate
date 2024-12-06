@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.4
+
+- Upgraded all dependencies
+- Add support and Github actions matrix for Python 3.13
+- Dropped support for Python 3.8
+
 ## 0.3.3
 
 - Upgraded all dependencies
