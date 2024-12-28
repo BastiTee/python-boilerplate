@@ -117,6 +117,7 @@ VERSION=$( poetry version --short ) &&\
 echo "Release: ${VERSION}" &&\
 git tag -a ${VERSION} -m "Version ${VERSION}" &&\
 git push --tags
+git push
 ```
 
 - Create a new release under <https://github.com/BastiTee/python-boilerplate/releases>
