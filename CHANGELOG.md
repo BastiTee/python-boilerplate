@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Added pyproject.toml metadata fields for better <https://pypi.org/> usability
+- Upgraded all dependencies
+
 ## 0.3.4
 
 - Upgraded all dependencies
