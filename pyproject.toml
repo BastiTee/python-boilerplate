@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "my_module"
-version = "0.4.0"
+version = "0.4.1"
 description = "A best-practices template project for Python modules"
 license = "Apache 2.0"
 authors = ["Basti Tee <basti.tee@icloud.com>"]
@@ -40,11 +40,11 @@ flake8-blind-except = "^0"
 flake8-use-fstring = "^1"
 flake8-isort = "^6"
 pep8-naming = "^0"
-isort = "^5"
+isort = "^6"
 pytest = "^8"
 mypy = "^1"
 typing-extensions = "^4"
-black = "^24"
+black = "^25"
 pipdeptree = "^2"
 
 [tool.poetry.scripts]
