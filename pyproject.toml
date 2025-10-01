@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "my_module"
-version = "0.4.1"
+version = "0.4.2"
 description = "A best-practices template project for Python modules"
 license = "Apache 2.0"
 authors = ["Basti Tee <basti.tee@icloud.com>"]

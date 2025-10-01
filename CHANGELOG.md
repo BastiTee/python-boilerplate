@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+-   Upgraded all dependencies
+-   Dropped support for Python 3.9
+-   Upgraded `pyproject.toml` after deprecation
+
 ## 0.4.1
 
 -   Upgraded all dependencies
