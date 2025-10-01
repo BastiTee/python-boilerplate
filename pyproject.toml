@@ -1,18 +1,22 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["uv_build"]
+build-backend = "uv_build"
 
-[tool.poetry]
+[project]
 name = "my_module"
 version = "0.4.2"
 description = "A best-practices template project for Python modules"
-license = "Apache 2.0"
-authors = ["Basti Tee <basti.tee@icloud.com>"]
-maintainers = ["Basti Tee <basti.tee@icloud.com>"]
-homepage = "https://github.com/BastiTee/python-boilerplate"
-repository = "https://github.com/BastiTee/python-boilerplate"
+license = "Apache-2.0"
 readme = "README.md"
 keywords = ["python", "template"]
+homepage = "https://github.com/BastiTee/python-boilerplate"
+repository = "https://github.com/BastiTee/python-boilerplate"
+authors = [
+  {name = "Basti Tee", email = "basti.tee@icloud.com"}
+]
+maintainers = [
+  {name = "Basti Tee", email = "basti.tee@icloud.com"}
+]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -24,30 +28,32 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13"
 ]
-
-[tool.poetry.dependencies]
 # Python version: https://www.python.org/downloads/
-python = ">3.9,<3.14"
+requires-python = ">3.9,<3.14"
 
-[tool.poetry.group.dev.dependencies]
-autopep8 = "^2"
-flake8 = "^7"
-flake8-quotes = "^3"
-flake8-docstrings = "^1"
-flake8-builtins = "^3"
-flake8-blind-except = "^0"
-flake8-use-fstring = "^1"
-flake8-isort = "^6"
-pep8-naming = "^0"
-isort = "^6"
-pytest = "^8"
-mypy = "^1"
-typing-extensions = "^4"
-black = "^25"
-pipdeptree = "^2"
-
-[tool.poetry.scripts]
+[project.scripts]
 my_module_cli = 'my_module.__main__:main'
+
+[tool.uv.build-backend]
+module-root = ""
+
+[dependency-groups]
+dev = [
+    "autopep8>=2.3.2",
+    "black>=25.9.0",
+    "flake8>=7.3.0",
+    "flake8-blind-except>=0.2.1",
+    "flake8-builtins>=3.0.0",
+    "flake8-docstrings>=1.7.0",
+    "flake8-isort>=6.1.2",
+    "flake8-quotes>=3.4.0",
+    "flake8-use-fstring>=1.4",
+    "isort>=6.0.1",
+    "mypy>=1.18.2",
+    "pep8-naming>=0.15.1",
+    "pytest>=8.4.2",
+    "typing-extensions>=4.15.0",
+]
 
 [tool.mypy]
 # Untyped definitions and calls
