@@ -6,16 +6,16 @@
 
 - Create a new repository [using this template](https://github.com/BastiTee/python-boilerplate/generate).
 - Make sure that `python` is installed and available on system path. I _strongly_ recommend using [`pyenv`](https://github.com/pyenv/pyenv).
-- Make sure [`poetry`](https://python-poetry.org/) is installed. This usually just means `python -m pip install poetry`.
+- Make sure [`uv`](https://github.com/astral-sh/uv) is installed. This usually just means `python -m pip install uv`.
 - Rename the project using [the provided script](rename_template.sh): `./rename_template.sh`.
 - Run `make` to initialize the project configuration and build everything.
-- Refer to [the Makefile](Makefile) to learn about the various operations available. Most of them are just facades for `poetry`.
+- Refer to [the Makefile](Makefile) to learn about the various operations available. Most of them are just facades for `uv`.
 
 ## Features
 
 - Basic project/module organization according to <https://packaging.python.org>
 - Makefile bootstrapping script
-- [poetry](https://python-poetry.org/) with virtual environments and project builds
+- [uv](https://github.com/astral-sh/uv) with virtual environments and project builds
 - [black](https://github.com/psf/black) code formatting
 - Unit testing with [pytest](https://docs.pytest.org/en/latest/)
 - Linting ([flake8](http://flake8.pycqa.org)) and code formatting ([autopep8](https://github.com/hhatto/autopep8)) support
