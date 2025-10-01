@@ -5,7 +5,7 @@
 ## Setup
 
 - Create a new repository [using this template](https://github.com/BastiTee/python-boilerplate/generate).
-- Make sure that `python` is installed and available on system path. I _strongly_ recommend using [`pyenv`](https://github.com/pyenv/pyenv).
+- Make sure that `python` is installed and available on system path.
 - Make sure [`uv`](https://github.com/astral-sh/uv) is installed. This usually just means `python -m pip install uv`.
 - Rename the project using [the provided script](rename_template.sh): `./rename_template.sh`.
 - Run `make` to initialize the project configuration and build everything.

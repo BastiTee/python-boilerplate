@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "my_module"
-version = "0.4.2"
+version = "0.5.0"
 description = "A best-practices template project for Python modules"
 license = "Apache-2.0"
 readme = "README.md"
