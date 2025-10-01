@@ -19,7 +19,6 @@ classifiers = [
     "Natural Language :: English",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -28,14 +27,14 @@ classifiers = [
 
 [tool.poetry.dependencies]
 # Python version: https://www.python.org/downloads/
-python = ">=3.9,<3.14"
+python = ">3.9,<3.14"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 autopep8 = "^2"
 flake8 = "^7"
 flake8-quotes = "^3"
 flake8-docstrings = "^1"
-flake8-builtins = "^2"
+flake8-builtins = "^3"
 flake8-blind-except = "^0"
 flake8-use-fstring = "^1"
 flake8-isort = "^6"
