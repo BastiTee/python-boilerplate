@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+-   Migrated from poetry to uv
+
 ## 0.4.2
 
 -   Upgraded all dependencies
