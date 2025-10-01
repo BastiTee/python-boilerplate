@@ -29,5 +29,5 @@ jobs:
 
             - name: CI checks
               run: |
-                  python -m pip install wheel poetry
+                  python -m pip install wheel uv
                   make

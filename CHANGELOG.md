@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+-   Migrated from poetry to uv
+
 ## 0.4.2
 
 -   Upgraded all dependencies
@@ -124,7 +128,7 @@ First release. Contains support for:
 -   Run
 
 ```shell
-VERSION=$( poetry version --short ) &&\
+VERSION=$( python -m uv version --short --color never ) &&\
 echo "Release: ${VERSION}" &&\
 git tag -a ${VERSION} -m "Version ${VERSION}" &&\
 git push --tags
