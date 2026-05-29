@@ -8,7 +8,7 @@ endif
 
 export LC_ALL = C
 export LANG = C.UTF-8
-PY_FILES := my_module tests
+PY_FILES := src tests
 
 .PHONY: help all clean clear-cache venv build test mypy lint lint-fix format format-check outdated update run-venv install-run audit pre-commit
 .DEFAULT_GOAL := all
@@ -74,6 +74,7 @@ update: ## Update all dependencies
 
 run-venv: ## Run module directly in venv
 	uv run python -m my_module
+
 
 install-run: ## Install package and run CLI
 	uv pip install --upgrade .
