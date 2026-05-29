@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.6.1
+
+-  Fix [tool.pytest] → [tool.pytest.ini_options] (was silently ignored)
+-  Fix mypy version spec (>=1.19.0) and pin uv_build>=0.8,<0.9
+-  Add pip-audit for dependency CVE scanning (make audit)
+-  Add pytest-cov with ≥80% coverage threshold and main.py omit
+-  Add pytest-randomly to randomize test execution order
+-  Add pre-commit with ruff and file-hygiene hooks (.pre-commit-config.yaml)
+-  Expand ruff rules: UP, B, C4, PTH, RUF
+-  Tighten mypy: warn_return_any, no_implicit_reexport, strict_equality
+-  Harden CI: permissions: contents: read, fail-fast: false, pip-audit step
+-  Remove obsolete UTF-8 coding declarations (UP009)
+-  Fix Makefile install-run to use uv pip; add audit and pre-commit targets
+-  Add python.defaultInterpreterPath to VS Code settings
+
 ## 0.6.0
 
 -  Simplify .gitignore
