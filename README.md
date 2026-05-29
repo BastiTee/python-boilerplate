@@ -20,12 +20,14 @@ This boilerplate gives you a production-ready Python project structure with mode
 - [uv](https://github.com/astral-sh/uv) with virtual environments and project builds
 - [Ruff](https://github.com/astral-sh/ruff) for linting and code formatting (replaces black, flake8, isort)
 - Security scanning via Ruff's [flake8-bandit](https://docs.astral.sh/ruff/rules/#flake8-bandit-s) rules
-- Unit testing with [pytest](https://docs.pytest.org/en/latest/)
+- Dependency vulnerability scanning with [pip-audit](https://github.com/pypa/pip-audit) (`make audit`)
+- Unit testing with [pytest](https://docs.pytest.org/en/latest/) including coverage enforcement (`pytest-cov`) and randomized test order (`pytest-randomly`)
 - [mypy](https://pypi.org/project/mypy/) for static type checking
 - PEP 561 compliant (`py.typed` marker included)
+- [pre-commit](https://pre-commit.com/) hooks for Ruff and file hygiene (`make pre-commit`)
 - Publishing to PyPi.org
 - [vscode](https://code.visualstudio.com/) editor configuration including plugin recommendations, debugging support, unit test discovery and on-save formatting
-- [Github actions](https://github.com/BastiTee/python-boilerplate/actions) continuous integration with multi-python testing
+- [Github actions](https://github.com/BastiTee/python-boilerplate/actions) continuous integration with multi-python testing and dependency scanning
 - [Dependabot](https://docs.github.com/en/code-security/dependabot) for automated dependency updates
 - Executable script so after package installation you can run from the CLI using `my_module_cli`
 

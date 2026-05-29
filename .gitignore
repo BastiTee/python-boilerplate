@@ -11,6 +11,8 @@ dist/
 
 # Unit test / coverage reports
 .pytest_cache/
+.coverage
+htmlcov/
 
 # pyenv
 .python-version

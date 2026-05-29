@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build"]
+requires = ["uv_build>=0.8,<0.9"]
 build-backend = "uv_build"
 
 [project]
@@ -26,22 +26,27 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13"
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14"
 ]
 # Python version: https://www.python.org/downloads/
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.10,<3.15"
 dependencies = []
 
 [project.scripts]
 my_module_cli = 'my_module.__main__:main'
 
 [tool.uv.build-backend]
-module-root = ""
+module-root = "src"
 
 [dependency-groups]
 dev = [
-    "mypy>=2.1.0",
+    "mypy>=1.19.0",
+    "pip-audit>=2.9.0",
+    "pre-commit>=4.2.0",
     "pytest>=9.0.3",
+    "pytest-cov>=6.0.0",
+    "pytest-randomly>=3.16.0",
     "ruff>=0.15.12",
     "typing-extensions>=4.15.0",
 ]
@@ -56,17 +61,31 @@ check_untyped_defs = true
 # Import discovery
 follow_imports = "normal"
 ignore_missing_imports = true
+mypy_path = "src"
 # Warning configuration
 warn_unused_ignores = true
 warn_unreachable = true
+warn_return_any = true
+# Stricter checks
+no_implicit_reexport = true
+strict_equality = true
 # Error message config
 # pretty = true
 
-[tool.pytest]
+[tool.pytest.ini_options]
 addopts = [
-  "-p",
-  "no:warnings"
+  "-p", "no:warnings",
+  "--import-mode=importlib",
+  "--cov=my_module",
+  "--cov-report=term-missing",
+  "--cov-fail-under=95",
 ]
+testpaths = ["tests"]
+pythonpath = ["src"]
+xfail_strict = true
+
+[tool.coverage.run]
+omit = ["*/__main__.py"]
 
 [tool.ruff]
 line-length = 88
@@ -79,17 +98,36 @@ select = [
     "F",    # pyflakes
     "I",    # isort
     "N",    # pep8-naming
+    "UP",   # pyupgrade (modern Python syntax)
+    "B",    # flake8-bugbear (common bugs + opinionated style)
+    "C4",   # flake8-comprehensions (idiomatic comprehensions)
     "BLE",  # flake8-blind-except
     "A",    # flake8-builtins
+    "PTH",  # flake8-use-pathlib (prefer pathlib over os.path)
+    "RUF",  # Ruff-native rules
     "S",    # flake8-bandit (security)
+    "PERF", # flake8-perflint (performance anti-patterns)
+    "SIM",  # flake8-simplify (simplifiable code patterns)
+    "TCH",  # flake8-type-checking (move imports to TYPE_CHECKING block)
+    "ERA",  # eradicate (flag commented-out code)
+    "T20",  # flake8-print (catch stray print() calls)
+    "PLC",  # pylint conventions
+    "PLE",  # pylint errors
+    "PLR",  # pylint refactoring
+    "PLW",  # pylint warnings
+    "G",    # flake8-logging-format
+    "TRY",  # tryceratops (try/except patterns)
 ]
 ignore = [
-    "E203",  # whitespace before colon (Black-compatible)
-    "S101",  # allow assert in tests
+    "E203",    # whitespace before colon (Black-compatible)
+    "S101",    # allow assert in tests (also set per-file below)
+    "TRY003",  # allow long exception messages
+    "PLR2004", # allow magic values in comparisons (too noisy)
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/**/*.py" = ["S101"]  # allow assert in test files
+"tests/**/*.py" = ["S101"]       # allow assert in test files
+"**/__main__.py" = ["T201"]      # allow print() in CLI entry points
 
 [tool.ruff.format]
 quote-style = "preserve"

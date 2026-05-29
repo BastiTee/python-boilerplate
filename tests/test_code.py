@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Test suite for my_module."""
 
 from my_module import greet

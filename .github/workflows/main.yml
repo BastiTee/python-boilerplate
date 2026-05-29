@@ -6,10 +6,18 @@ on:
             - main
             - feature/*
 
+permissions:
+    contents: read
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
 jobs:
     build:
         runs-on: ubuntu-latest
         strategy:
+            fail-fast: false
             matrix:
                 # https://www.python.org/downloads/
                 python-version: [
@@ -17,6 +25,7 @@ jobs:
                         "3.11", # EOL: 2027-10
                         "3.12", # EOL: 2028-10
                         "3.13", # EOL: 2029-10
+                        "3.14", # EOL: 2030-10
                     ]
         name: ${{ matrix.python-version }}
         steps:
@@ -32,3 +41,6 @@ jobs:
 
             - name: CI checks
               run: make
+
+            - name: Dependency vulnerability scan
+              run: make audit

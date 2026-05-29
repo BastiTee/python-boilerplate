@@ -20,7 +20,7 @@ if [ -z "$1" ]; then show_help; exit 1; fi
 make clean
 
 # Rename module
-mv -v my_module "$1"
+mv -v src/my_module "src/$1"
 
 # Replace module references with new name
 find . -type f -exec grep -l my_module {} + |\
