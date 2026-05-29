@@ -10,7 +10,7 @@ export LC_ALL = C
 export LANG = C.UTF-8
 PY_FILES := my_module tests
 
-.PHONY: help all clean clear-cache venv build test mypy lint lint-fix format format-check outdated update run-venv install-run
+.PHONY: help all clean clear-cache venv build test mypy lint lint-fix format format-check outdated update run-venv install-run audit pre-commit
 .DEFAULT_GOAL := all
 
 help: ## Show this help message
@@ -76,6 +76,12 @@ run-venv: ## Run module directly in venv
 	uv run python -m my_module
 
 install-run: ## Install package and run CLI
-	python -m pip install --upgrade .
+	uv pip install --upgrade .
 	@echo --- Note: The next command might fail before you reload your shell
 	my_module_cli
+
+audit: ## Scan dependencies for known CVEs
+	uv run pip-audit
+
+pre-commit: ## Run all pre-commit hooks on all files
+	uv run pre-commit run --all-files

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """my_module - A Python module template.
 
 This module provides example functions demonstrating proper typing,

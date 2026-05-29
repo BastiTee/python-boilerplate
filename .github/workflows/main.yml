@@ -6,10 +6,14 @@ on:
             - main
             - feature/*
 
+permissions:
+    contents: read
+
 jobs:
     build:
         runs-on: ubuntu-latest
         strategy:
+            fail-fast: false
             matrix:
                 # https://www.python.org/downloads/
                 python-version: [
@@ -32,3 +36,6 @@ jobs:
 
             - name: CI checks
               run: make
+
+            - name: Dependency vulnerability scan
+              run: make audit

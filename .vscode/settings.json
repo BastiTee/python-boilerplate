@@ -1,8 +1,8 @@
 {
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
     "python.analysis.extraPaths": [
         "my_module",
-        "tests",
-        ".venv/bin/python"
+        "tests"
     ],
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
