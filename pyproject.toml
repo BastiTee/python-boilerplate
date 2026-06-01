@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build>=0.8,<0.9"]
+requires = ["uv_build>=0.11.17,<0.12"]
 build-backend = "uv_build"
 
 [project]
@@ -41,13 +41,13 @@ module-root = "src"
 
 [dependency-groups]
 dev = [
-    "mypy>=1.19.0",
-    "pip-audit>=2.9.0",
-    "pre-commit>=4.2.0",
+    "mypy>=2.1.0",
+    "pip-audit>=2.10.0",
+    "pre-commit>=4.6.0",
     "pytest>=9.0.3",
-    "pytest-cov>=6.0.0",
-    "pytest-randomly>=3.16.0",
-    "ruff>=0.15.12",
+    "pytest-cov>=7.1.0",
+    "pytest-randomly>=4.1.0",
+    "ruff>=0.15.15",
     "typing-extensions>=4.15.0",
 ]
 
