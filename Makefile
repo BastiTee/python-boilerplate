@@ -82,7 +82,7 @@ install-run: ## Install package and run CLI
 	my_module_cli
 
 audit: ## Scan dependencies for known CVEs
-	uv run pip-audit
+	uv run pip-audit --skip-editable
 
 pre-commit: ## Run all pre-commit hooks on all files
 	uv run pre-commit run --all-files
