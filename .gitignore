@@ -38,3 +38,4 @@ venv.bak/
 
 # AI tooling
 .claude/
+!.claude/commands/
