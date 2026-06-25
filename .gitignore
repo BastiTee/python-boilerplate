@@ -37,5 +37,4 @@ venv.bak/
 .ruff_cache/
 
 # AI tooling
-.claude/
-!.claude/commands/
+.claude/settings.local.json
