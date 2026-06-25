@@ -1,3 +1,4 @@
+# Main CI/CD script for your project
 name: CI
 
 on:

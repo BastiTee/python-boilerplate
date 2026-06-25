@@ -30,7 +30,7 @@ do
     sed -i.rename-bak "s/my_module/$1/g" $file
 done
 # Reset version
-sed -i.rename-bak "s/version = .*/version = \"0.0.1\"/g" pyproject.toml
+sed -i.rename-bak "s/^version = .*/version = \"0.0.1\"/g" pyproject.toml
 
 # Overwrite README file
 cat <<EOF >README.md
@@ -39,4 +39,4 @@ EOF
 
 # Clean up
 find . -type f -iname "*.rename-bak" -exec rm -f {} \;
-rm -f $( basename $0 ) CHANGELOG.md
+rm -rf $( basename $0 ) CHANGELOG.md CLAUDE.md .claude .github/workflows/main-build.yml
