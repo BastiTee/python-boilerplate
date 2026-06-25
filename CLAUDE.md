@@ -35,20 +35,20 @@ uv run py.test tests/test_code.py -k "test_code"  # By name pattern
 
 ## Architecture
 
-The public API lives in `my_module/__init__.py` (exports via `__all__`). `__main__.py` is the CLI entry point that imports from `__init__.py` — new functionality goes in `__init__.py` (or submodules imported there), not in `__main__.py`.
+The module lives under `src/my_module/` (src layout; `mypy_path = "src"`). The public API lives in `src/my_module/__init__.py` (exports via `__all__`). `__main__.py` is the CLI entry point that imports from `__init__.py` — new functionality goes in `__init__.py` (or submodules imported there), not in `__main__.py`.
 
-- `my_module/py.typed` — PEP 561 marker; this package ships type information for downstream consumers
+- `src/my_module/py.typed` — PEP 561 marker; this package ships type information for downstream consumers
 - `tests/` — pytest test suite, class-based structure mirroring module structure
 - CLI entry point: `my_module_cli` → `my_module.__main__:main`
 
 ## Code Quality
 
 - **Ruff**: Linting + formatting (line-length 88, quote-style preserve)
-  - Rules: pycodestyle, pyflakes, isort, pyupgrade (UP), flake8-bugbear (B), flake8-comprehensions (C4), flake8-use-pathlib (PTH), Ruff-native (RUF), flake8-bandit (S); `assert` allowed in tests
+  - Rules: pycodestyle (E/W), pyflakes (F), isort (I), pep8-naming (N), pyupgrade (UP), bugbear (B), comprehensions (C4), blind-except (BLE), builtins (A), pathlib (PTH), Ruff-native (RUF), bandit (S), perflint (PERF), simplify (SIM), type-checking (TCH), eradicate (ERA), print (T20), pylint (PLC/PLE/PLR/PLW), logging-format (G), tryceratops (TRY); `assert` and `print()` allowed in tests/CLI respectively
 - **Mypy**: Strict mode (`disallow_untyped_defs`, `warn_return_any`, `no_implicit_reexport`, `strict_equality`)
-- **pytest**: Coverage enforced at ≥80% (`pytest-cov`), randomized order (`pytest-randomly`), `__main__.py` excluded from coverage
+- **pytest**: Coverage enforced at ≥95% (`pytest-cov`), randomized order (`pytest-randomly`), `__main__.py` excluded from coverage
 - **pip-audit**: CVE scanning for all dependencies
 - **pre-commit**: Ruff auto-fix + format, YAML/TOML/merge-conflict hygiene
-- **Python**: 3.10–3.13
+- **Python**: 3.10–3.14
 
 All config is centralized in `pyproject.toml`.
