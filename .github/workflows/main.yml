@@ -30,18 +30,30 @@ jobs:
                     ]
         name: ${{ matrix.python-version }}
         steps:
-            - uses: actions/checkout@v7
+            - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
             - name: Setup uv
-              uses: astral-sh/setup-uv@v7
+              uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
               with:
                   enable-cache: true
 
             - name: Setup Python ${{ matrix.python-version }}
               run: uv python install ${{ matrix.python-version }}
 
-            - name: CI checks
-              run: make
+            - name: Sync dependencies
+              run: uv sync
+
+            - name: Test
+              run: make test
+
+            - name: Type check
+              run: make mypy
+
+            - name: Lint & format check
+              run: make lint format-check
+
+            - name: Build
+              run: uv build
 
             - name: Dependency vulnerability scan
               run: make audit
