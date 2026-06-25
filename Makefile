@@ -29,6 +29,7 @@ clean: ## Remove .venv, caches, and build artifacts
 	find . -type d \
 	-name ".venv" -o \
 	-name ".tox" -o \
+	-name ".coverage" -o \
 	-name ".ropeproject" -o \
 	-name ".mypy_cache" -o \
 	-name ".ruff_cache" -o \
