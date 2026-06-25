@@ -39,4 +39,4 @@ EOF
 
 # Clean up
 find . -type f -iname "*.rename-bak" -exec rm -f {} \;
-rm -rf $( basename $0 ) CHANGELOG.md CLAUDE.md .claude
+rm -rf $( basename $0 ) CHANGELOG.md CLAUDE.md .claude .github/workflows/main-build.yml

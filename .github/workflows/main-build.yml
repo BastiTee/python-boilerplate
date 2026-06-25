@@ -1,5 +1,5 @@
-# Main CI/CD script for your project
-name: CI
+# Side-car CI/CD script to ensure that the rename script works.
+name: CI-Build
 
 on:
     push:
