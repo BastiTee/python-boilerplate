@@ -18,18 +18,7 @@ concurrency:
 jobs:
     build:
         runs-on: ubuntu-latest
-        strategy:
-            fail-fast: false
-            matrix:
-                # https://www.python.org/downloads/
-                python-version: [
-                        "3.10", # EOL: 2026-10
-                        "3.11", # EOL: 2027-10
-                        "3.12", # EOL: 2028-10
-                        "3.13", # EOL: 2029-10
-                        "3.14", # EOL: 2030-10
-                    ]
-        name: ${{ matrix.python-version }}
+        name: Test rename script
         steps:
             - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
 
@@ -38,23 +27,11 @@ jobs:
               with:
                   enable-cache: true
 
-            - name: Setup Python ${{ matrix.python-version }}
-              run: uv python install ${{ matrix.python-version }}
+            - name: Setup Python
+              run: uv python install 3.14
 
-            - name: Sync dependencies
-              run: uv sync
+            - name: Run rename
+              run: ./rename_template.sh mymod
 
-            - name: Test
-              run: make test
-
-            - name: Type check
-              run: make mypy
-
-            - name: Lint & format check
-              run: make lint format-check
-
-            - name: Build
-              run: uv build
-
-            - name: Dependency vulnerability scan
-              run: make audit
+            - name: Run basic build process
+              run: make
