@@ -1,5 +1,5 @@
 [build-system]
-requires = ["uv_build>=0.11.23,<0.12"]
+requires = ["uv_build>=0.11.26,<0.12"]
 build-backend = "uv_build"
 
 [project]
@@ -47,8 +47,8 @@ dev = [
     "pytest>=9.1.1",
     "pytest-cov>=7.1.0",
     "pytest-randomly>=4.1.0",
-    "ruff>=0.15.18",
-    "typing-extensions>=4.15.0",
+    "ruff>=0.15.20",
+    "typing-extensions>=4.16.0",
 ]
 
 [tool.mypy]
