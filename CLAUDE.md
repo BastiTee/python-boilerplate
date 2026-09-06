@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Python boilerplate/template project using `uv` for dependency management. To use as a template, run `./rename_template.sh <NEW_NAME>` — this renames the module, resets the version to `0.0.1`, rewrites `README.md`, and deletes itself and `CHANGELOG.md`.
+Python boilerplate/template project using `uv` for dependency management. To use as a template, run `./rename_template.sh <NEW_NAME>` — this renames `src/my_module`, replaces all `my_module` references repo-wide, resets the version to `0.0.1`, rewrites `README.md`, and deletes itself, `CHANGELOG.md`, `CLAUDE.md`, `.claude/`, and `.github/workflows/main-build.yml`. A dedicated CI workflow (`main-build.yml`) runs the rename script and a full build on every push to catch regressions in the script itself.
 
 ## Development Commands
 
@@ -48,7 +48,7 @@ The module lives under `src/my_module/` (src layout; `mypy_path = "src"`). The p
 - **Mypy**: Strict mode (`disallow_untyped_defs`, `warn_return_any`, `no_implicit_reexport`, `strict_equality`)
 - **pytest**: Coverage enforced at ≥95% (`pytest-cov`), randomized order (`pytest-randomly`), `__main__.py` excluded from coverage
 - **pip-audit**: CVE scanning for all dependencies
-- **pre-commit**: Ruff auto-fix + format, YAML/TOML/merge-conflict hygiene
-- **Python**: 3.10–3.14
+- **pre-commit**: Ruff auto-fix + format, YAML/TOML/merge-conflict hygiene, gitleaks secret scanning
+- **Python**: 3.10–3.14, CI matrix-tests every version on each push (`.github/workflows/main.yml`)
 
 All config is centralized in `pyproject.toml`.
