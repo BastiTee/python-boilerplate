@@ -52,23 +52,13 @@ dev = [
 ]
 
 [tool.mypy]
-# Untyped definitions and calls
-# Disallows defining functions without type annotations or with
-# incomplete type annotations.
-disallow_untyped_defs = true
-# Type-checks the interior of functions without type annotations
-check_untyped_defs = true
+strict = true
 # Import discovery
 follow_imports = "normal"
 ignore_missing_imports = true
 mypy_path = "src"
 # Warning configuration
-warn_unused_ignores = true
 warn_unreachable = true
-warn_return_any = true
-# Stricter checks
-no_implicit_reexport = true
-strict_equality = true
 # Error message config
 # pretty = true
 
