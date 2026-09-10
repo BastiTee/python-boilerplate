@@ -75,7 +75,9 @@ pythonpath = ["src"]
 xfail_strict = true
 
 [tool.coverage.run]
+source_pkgs = ["my_module"]
 omit = ["*/__main__.py"]
+disable_warnings = ["module-not-measured"]
 
 [tool.ruff]
 line-length = 88
