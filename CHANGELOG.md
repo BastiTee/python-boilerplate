@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.6.2
+
+-  Enable mypy `strict = true` instead of hand-picked strict flags
+-  Sync ruff pre-commit hook version with the ruff dev dependency to stop local/CI lint drift
+-  Add GitHub dependency review to CI for pull requests
+-  Pin GitHub Actions to commit SHAs and split the monolithic build into discrete CI steps
+-  Fix ambiguous coverage source resolution for the src layout (`source_pkgs`)
+-  Add a side-car CI workflow that runs the rename script plus a full build on every push
+-  Add a `make clean` step and minor rename-script improvements
+-  Upgrade all dependencies
+
 ## 0.6.1
 
 -  Fix [tool.pytest] → [tool.pytest.ini_options] (was silently ignored)
