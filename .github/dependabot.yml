@@ -3,8 +3,6 @@ updates:
   # Python dependencies (uv/pip ecosystem)
   - package-ecosystem: "pip"
     directory: "/"
-    assignees:
-      - "BastiTee"
     schedule:
       interval: "weekly"
       day: "monday"
@@ -18,8 +16,6 @@ updates:
   # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
-    assignees:
-      - "BastiTee"
     schedule:
       interval: "weekly"
       day: "monday"
