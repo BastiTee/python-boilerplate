@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.3
+
+- feat: add release skill for streamlined release workflow ([#51](https://github.com/BastiTee/python-boilerplate/pull/51))
+- fix: upgrade urllib3 and virtualenv to fix security vulnerabilities ([#50](https://github.com/BastiTee/python-boilerplate/pull/50))
+
 ## 0.6.2
 
 -  Enable mypy `strict = true` instead of hand-picked strict flags
