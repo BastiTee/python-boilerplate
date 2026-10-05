@@ -1,6 +1,6 @@
 ---
 name: "Release"
-description: Run the full release workflow — changelog, version bump, tag, GitHub release, PyPI publish
+description: Run the full release workflow — changelog, version bump, tag, GitHub release
 allowed-tools: Bash, Read, Edit
 category: Workflow
 tags: [release, workflow]
@@ -77,12 +77,4 @@ gh release create X.Y.Z \
   --notes "https://github.com/BastiTee/python-boilerplate/blob/main/CHANGELOG.md#XYZ"
 ```
 
-## Step 9 — Publish to PyPI _(manual — requires your credentials)_
-
-Tell the user to run this themselves in the terminal:
-
-```bash
-uv publish
-```
-
-Do not run this command yourself. Report the release as complete once the user confirms it succeeded.
+Report the release as complete once Step 8 succeeds.
