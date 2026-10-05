@@ -69,12 +69,12 @@ git push && git push --tags
 
 ## Step 8 — Create GitHub release _(confirm before running — irreversible)_
 
-The release title is the version number. The notes are a single link to the changelog section — the anchor is the version with dots stripped (e.g. `0.1.2` → `#012`).
+The release title is `vX.Y.Z` (v-prefixed). The notes are a bare URL to the changelog section — the anchor is the version with dots stripped (e.g. `0.1.2` → `#012`).
 
 ```bash
 gh release create X.Y.Z \
-  --title "X.Y.Z" \
-  --notes "See [CHANGELOG](https://github.com/BastiTee/python-boilerplate/blob/main/CHANGELOG.md#XYZ)"
+  --title "vX.Y.Z" \
+  --notes "https://github.com/BastiTee/python-boilerplate/blob/main/CHANGELOG.md#XYZ"
 ```
 
 ## Step 9 — Publish to PyPI _(manual — requires your credentials)_
