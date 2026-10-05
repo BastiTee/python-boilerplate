@@ -10,7 +10,7 @@ export LC_ALL = C
 export LANG = C.UTF-8
 PY_FILES := src tests
 
-.PHONY: help all clean clear-cache venv build test mypy lint lint-fix format format-check outdated update run-venv install-run audit pre-commit
+.PHONY: help all clean clear-cache venv build release test mypy lint lint-fix format format-check outdated update run-venv install-run audit pre-commit
 .DEFAULT_GOAL := all
 
 help: ## Show this help message
@@ -48,6 +48,9 @@ venv: clean ## Clean and recreate virtual environment
 
 build: test mypy lint format ## Run the entire build chain
 	uv build
+
+release: clean build ## Prepare release
+	ls -la dist
 
 test: ## Run pytest test suite
 	uv run py.test tests

@@ -48,10 +48,10 @@ For each user-facing change, include a linked PR reference in the format `([#N](
 ## Step 5 — Build the release artifact
 
 ```bash
-make build
+make release
 ```
 
-This runs the full build chain (tests, mypy, lint, format, package) and must succeed before committing. Fix any failures before continuing.
+This runs a clean build (tests, mypy, lint, format, package) and lists the built artifacts. It must succeed before committing. Fix any failures before continuing.
 
 ## Step 6 — Commit
 
