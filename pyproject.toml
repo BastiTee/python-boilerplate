@@ -23,14 +23,14 @@ classifiers = [
     "Natural Language :: English",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14"
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15"
 ]
 # Python version: https://www.python.org/downloads/
-requires-python = ">=3.10,<3.15"
+requires-python = ">=3.11,<3.16"
 dependencies = []
 
 [project.scripts]
@@ -81,7 +81,7 @@ disable_warnings = ["module-not-measured"]
 
 [tool.ruff]
 line-length = 88
-target-version = "py310"
+target-version = "py311"
 
 [tool.ruff.lint]
 select = [
