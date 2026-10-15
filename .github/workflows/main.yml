@@ -26,11 +26,11 @@ jobs:
             matrix:
                 # https://www.python.org/downloads/
                 python-version: [
-                        "3.10", # EOL: 2026-10
                         "3.11", # EOL: 2027-10
                         "3.12", # EOL: 2028-10
                         "3.13", # EOL: 2029-10
                         "3.14", # EOL: 2030-10
+                        "3.15", # EOL: 2031-10
                     ]
         name: ${{ matrix.python-version }}
         steps:
@@ -60,6 +60,9 @@ jobs:
               run: uv build
 
             - name: Dependency vulnerability scan
+              # pip-audit (via pip_api) uses sre_constants which was removed in 3.15
+              # skip until upstream adds 3.15 support
+              if: matrix.python-version != '3.15'
               run: make audit
 
     dependency-review:
