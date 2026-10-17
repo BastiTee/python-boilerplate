@@ -64,7 +64,6 @@ warn_unreachable = true
 
 [tool.pytest.ini_options]
 addopts = [
-  "-p", "no:warnings",
   "--import-mode=importlib",
   "--cov=my_module",
   "--cov-report=term-missing",
@@ -73,6 +72,7 @@ addopts = [
 testpaths = ["tests"]
 pythonpath = ["src"]
 xfail_strict = true
+filterwarnings = ["error"]
 
 [tool.coverage.run]
 source_pkgs = ["my_module"]

@@ -46,9 +46,10 @@ The module lives under `src/my_module/` (src layout; `mypy_path = "src"`). The p
 - **Ruff**: Linting + formatting (line-length 88, quote-style preserve)
   - Rules: pycodestyle (E/W), pyflakes (F), isort (I), pep8-naming (N), pyupgrade (UP), bugbear (B), comprehensions (C4), blind-except (BLE), builtins (A), pathlib (PTH), Ruff-native (RUF), bandit (S), perflint (PERF), simplify (SIM), type-checking (TCH), eradicate (ERA), print (T20), pylint (PLC/PLE/PLR/PLW), logging-format (G), tryceratops (TRY); `assert` and `print()` allowed in tests/CLI respectively
 - **Mypy**: Strict mode (`disallow_untyped_defs`, `warn_return_any`, `no_implicit_reexport`, `strict_equality`)
-- **pytest**: Coverage enforced at ≥95% (`pytest-cov`), randomized order (`pytest-randomly`), `__main__.py` excluded from coverage
-- **pip-audit**: CVE scanning for all dependencies
-- **pre-commit**: Ruff auto-fix + format, YAML/TOML/merge-conflict hygiene, gitleaks secret scanning
-- **Python**: 3.10–3.14, CI matrix-tests every version on each push (`.github/workflows/main.yml`)
+- **pytest**: Coverage enforced at ≥95% (`pytest-cov`), randomized order (`pytest-randomly`), warnings treated as errors (`filterwarnings = ["error"]`), `__main__.py` excluded from coverage
+- **pip-audit**: CVE scanning for all dependencies (skipped on 3.15 in CI until upstream supports it)
+- **pre-commit**: Ruff auto-fix + format, YAML/TOML/merge-conflict hygiene, gitleaks secret scanning; also run in CI as a separate `pre-commit` job
+- **Python**: 3.11–3.15, CI matrix-tests every version on each push (`.github/workflows/main.yml`)
+- **Lockfile**: CI installs with `uv sync --locked`, so run `uv lock` after any change to `pyproject.toml` dependencies or `requires-python`
 
 All config is centralized in `pyproject.toml`.
